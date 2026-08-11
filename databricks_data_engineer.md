@@ -50,13 +50,38 @@
 	- To Delta Tables
 	- Performed by: LF Connect Standard Connectors
 
++ Ingestion Method - CTAS (CREATE TABLE AS) + `spark.read`
+	- Ingestion Type: Batch
+	- Best for: one-time, ad hoc ingestion. Can be scheduled to always read and process all data.
+	- Schema Evolution: Manual or inferred during read
+	- Scale: Small datasets
+	- Idempotency: NO
+	- Unified schema: Can be inferred
+	- Can be used with streaming-tables via autoloaders
+	- SQL: `<CTAS> SELECT * FROM read_files(path,format,**);`
+	- PYTHON: `spark.read_files`
 
-+ Ingestion Methods - Incremental/Normal Batch
-	- Batch - CTAS (CREATE TABLE AS): can infer a unified schema, can be used with streaming-tables via autoloaders, `<CTAS> SELECT * FROM read_files(path,format,**);`
-	- Incremental Batch - COPY INTO: idempotent, FORMAT_OPTIONS()=source-parsing/interpretation, COPY_OPTIONS()=`mergeSchema`(schema evolution), `force` (idempotency), `COPY INTO tbl FROM 'cloud_dir_path' ...`
-	- AUTO LOADER:		 
++ Ingestion Methods - COPY INTO
+	- Ingestion Type: Incremental Batch
+	- Best for: Simple and repeatable for incremental file ingestion. Great for scheduled jobs or pipelines.
+	- Schema Evolution: Supported with options
+	- Scale: Thousands of files
+	- Latency: moderate (scheduled)
+	- Idempotency: YES
+	- FORMAT_OPTIONS()=source-parsing/interpretation
+	- COPY_OPTIONS()=`mergeSchema`(schema evolution)
+	- `force` (idempotency)
+	- SQL: `COPY INTO tbl FROM 'cloud_dir_path' ...`
+	- Python: -
 
-+ Ingestion Methods - AutoLoader
-	- Incremental batch or streaming ingestion: simple, scalable, relies on Spark Structured Streaming
++ Ingestion Method - AutoLoader
+	- Ingestion Type: Incremental batch or streaming ingestion
+	- Best for: near real-time streaming or incremental ingestion, with high automation and scalability.
+	- Schema Evolution: Automatically detects and evolves schemas. Handles new columns as they appear.
+	- Scale: Millions/billions files per hour
+	- Idempotency: YES
+	- Latency: low or high depending on config
+	- Simple, scalable, relies on Spark Structured Streaming
+	- Streaming Tables: recommended over `copy into`, registered in UC, comes with a pipeline, supports Kafka and Cloud Object Storage
+	- SQL (Declarative Pipelines): Use `read_files` + `STREAM`, `CREATE OR REFRESH STREAMING TABLE tbl SCHEDULE EVERY 1 HOUR AS SELECT * FROM STREAM read_files()`
 	- Python: `spark.readStream.format("cloudFiles").**.load("vlm").writeStream.trigger(processingTime="5 seconds").toTable("ctlg.db.tbl")`
-	- SQL (Declarative Pipelines): `CREATE OR REFRESH STREAMING TABLE tbl SCHEDULE EVERY 1 HOUR AS SELECT * FROM STREAM read_files()`
