@@ -85,3 +85,138 @@
 	- Streaming Tables: recommended over `copy into`, registered in UC, comes with a pipeline, supports Kafka and Cloud Object Storage
 	- SQL (Declarative Pipelines): Use `read_files` + `STREAM`, `CREATE OR REFRESH STREAMING TABLE tbl SCHEDULE EVERY 1 HOUR AS SELECT * FROM STREAM read_files()`
 	- Python: `spark.readStream.format("cloudFiles").**.load("vlm").writeStream.trigger(processingTime="5 seconds").toTable("ctlg.db.tbl")`
+
+## Working `_metadata` and `_rescued_data` Columns on Ingest
+
++ Benefits of adding Metadata Columns
+	- Debugging
+	- Lineage
+	- Auditing
+
++ `_metadata` Column:
+	- Hidden by default
+	- Available for all input file
+	- Its fields need to be selected in read query
+
++ Common `_metadata` Fields to Add
+	- Source/Input File Name: `_metadata.file_name`
+	- Last Modification Timestamp of Input File: `_metadata.file_modification_time`
+
++ `_rescued_data` Column Features
+	- Created by: `SQL::read_files()`, `spark.read`, or AutoLoader
+	- JSON Strings: Stored mismatched values
+	- `null`: no mismatch
+	- Prevents silent data loss
+	- In `PYTHON::spark.read` add `.option("rescuedDataColumn","_rescued_data")`
+	- In `SQL::read_files()` add `rescueddatacolumn => "_rescued_data"`
+
+## Ingesting Semi-Structured Data: JSON
+
++ JSON Format:
+	- Object: `{}`
+	- Key: type=string, always contains value, `"key":"value"`
+	- Value: str, num, bool, array, obj, null
+
++ JSON String Column Methods
+	- String: raw text, no constraints, less performant `json_col:name`, `json_col:address:city`
+	- Struct: defined schema, more query efficient, more consistent
+	- Variant: can store any type of data, high flexibility, better performance
+
++ Implementation - Struct from JSON String
+	- `STRUCT<>`
+	- `ARRAY<>`
+	- `json_key: {TYPE}`
+	- `{TYPE}`: INT | STRING | STRUCT<> | ...
+	- Array of Structs: `STRUCT< ARRAY< key_a:T1, key_b:T2 > >`
+	- Function `schema_of_json()`: From a sample JSON str, `SELECT schema_of_json('a-json-str')`
+	- Function `from_json()`: Converts struct-string to strusct_col, `SELECT from_json(json_col, 'json-struct-schema') AS struct_col FROM tbl`
+	- Access: `struct_col.item`
+
++ Implementation - Variant from JSON String
+	- Function `parse_json ( json_str )`
+	- Access and Easy Cast: `variant_col:item :: STRING`
+
++ BASE64 Values: use `CAST( unbase64(base64_col) AS STRING )`
+
++ Struct Array Functions:
+	- Explode: `explode( value.items ) AS item_in_array`
+	- Array Length: `array_size( value.items ) AS num_elements`
+
+## Ingesting Enterprise Data Overview
+
++ LakeFlow Connect Managed Connectors
+	- Ingest data from DBs (SQLs, SQL Server), Apps (Workday, Salesforce)
+	- Simple: UI, low-code, can via API
+	- Reliable & Fast
+
++ SaaS Apps - Managed Ingestion Pipeline Steps
+	1. Collect Credentials: LF Serverless Declarative Pipelines job collects credentials from UC.
+	2. Reach Public Data Source: e.g. API, open OLAP port
+	3. Streaming Data Table: final storage
+
++ DB Ingestion - Architecture Steps
+	1. Classic Compute DP: Collects creds from UC
+	2. Ingestion Gateway: Connect/Collect Data ( metadata, snapshots, change logs) from DB sources
+	3. UC Volume as Staging Layer: Stores staging data and states, secure
+	4. Serverless DP: Processes collected data to Streaming Delta Tables
+
++ DB Ingestion - Gateway
+	- Decreased Network Load on DB
+	- Network Isolation
+	- Reliable Recovery Matter
+	- Prevents continuous DB connectivity
+
++ Data Ingestion with Partner Connect
+	- For other data sources
+	- Create trial accounts via dbx
+	- Test and Evaluate
+	- Example Partners: informatica, prophecy, fivetran, Qlik, rivery, alteryx
+
+## Additional Features and Ingesting into Existing Delta Tables
+
++ Lakehouse Federation
+	- Query external data sources
+	- No data moving
+	- Good for: Ad-hoc reporting, exploratory phase
+	- Support workloads during incremental migration
+
++ Zerobus
+	- LF Connect API
+	- Write event data to LH directly
+	- High throughput, low latency
+	- Simple Ingestion for: IOT, Clickstreams, Telemetry
+
++ Delta Sharing
+	- Share data across platforms, clouds, regions
+	- Secure
+
++ Dbx Marketplace
+	- Open exchange for all data products (datasets, notebooks, ml models, etc.)
+	- Get Instant Access
+
++ MERGE INTO Features
+	- Automatic update, insert, delete in an existing Delta table
+	- Schema Enforcements: Supported
+	- Schema Mismatch: Fails by default
+	- Schema Evolution: Supported with `MERGE WITH SCHEMA EVOLUTION INTO`
+	- Matched Rows: UPDATE or DELETE
+	- Unmatched rows by target: INSERT
+	- Unmatched rows by source: UPDATE or DELETE
+	- Good For: SCD (Slowly Changing Dimension), incremental loads, complex CDC (Change Data Capture)
+
++ MERGE INTO SQL Example:
+
+```sql
+MERGE INTO target_table target
+USING source_table source
+ON target.id = source.id
+WHEN MATCHED AND source.status = 'update' THEN
+  UPDATE SET
+    target.email = source.email,
+    target.status = source.status
+WHEN MATCHED AND source.status = 'delete' THEN
+  DELETE
+WHEN NOT MATCHED THEN
+  INSERT (id, first_name, email, sign_up_date
+  status)
+```
