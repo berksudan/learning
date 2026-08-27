@@ -266,3 +266,6 @@ WHEN NOT MATCHED THEN
 	- Job Clusters: 50% cheaper, lifetime bound to job, prod-grade, subject to cloud provider start-up times, can be reused across tasks
 	- Serverless: fully managed, auto-scaling, optimized performance, simple, fast, reliable, cheap, better UX, performance-mode for faster job start-up/exec
 	- SQL WH: for sql queries, for dashboards, for BI, can use notebooks, low latency, high concurrency, autoscaling, auto-start/stop, adjustable cluster size, cost-control
+
++ LF Task Orchestration and DAG
+	- DAG (Direct Acyclic Graph): no cycles 
