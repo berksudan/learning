@@ -233,6 +233,7 @@ WHEN NOT MATCHED THEN
 + LF Task:
 	- Single unit of work in a Job
 	- Examples: Notebook, script, query, dbt, spark, py-wheels etc.
+	- Each task's compute source can differ
 
 + LF Task Common Options:
 	- Path
@@ -263,5 +264,5 @@ WHEN NOT MATCHED THEN
 + LF Job Compute Options
 	- Interactive / All-Purpose Clusters: shared, multi-user, expensive, no-prod, best for ad-hoc analysis / data-exploration / development
 	- Job Clusters: 50% cheaper, lifetime bound to job, prod-grade, subject to cloud provider start-up times, can be reused across tasks
-	- Serverless: fully managed, auto-scaling, optimized performance, simple, fast, reliable, cheap, better UX
-	- SQL WH: for sql queries, for dashboards, for BI, can use notebooks, low latency, high concurrency, autoscaling
+	- Serverless: fully managed, auto-scaling, optimized performance, simple, fast, reliable, cheap, better UX, performance-mode for faster job start-up/exec
+	- SQL WH: for sql queries, for dashboards, for BI, can use notebooks, low latency, high concurrency, autoscaling, auto-start/stop, adjustable cluster size, cost-control
