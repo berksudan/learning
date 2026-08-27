@@ -285,13 +285,21 @@ WHEN NOT MATCHED THEN
 	2. Retries: Task/job level, first line of defense, different retry strategies
 	3. Notification Alerts: Task/job level, granular target control
 
-+ Task-Level Params:
++ Task Params:
 	- JSON Arrays (Key-Value Pairs)
 	- Conditional Exec Support: Data condition branching, env settings, business rules
 	- Looping Support: iteration counts, for-each loop arrays, complex processing
 	- Context Passing: Data flow for downstream tasks
 
-+ Job-Level Params:
++ Job Params:
 	- Applied to all tasks automatically
 	- Overrides same-keyed task params
 	- Can be overriden at runtime on job run trigger
+
++ Code
+	- Get Param: `dbutils.widgets.get("parameter_name")`
+	- Dynamically Set Task Values with Code: `dbutils.jobs.taskValues.set(key="a_name", value="lol")`
+	- Accessing a Parameter from another Task: `dbutils.jobs.taskValues.get(taskKey="task-name",key="catalog_name")`
+
+
+	
