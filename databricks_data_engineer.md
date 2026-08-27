@@ -285,6 +285,10 @@ WHEN NOT MATCHED THEN
 	2. Retries: Task/job level, first line of defense, different retry strategies
 	3. Notification Alerts: Task/job level, granular target control
 
-+ Task Params:
-	- Key-Value Pairs
++ Task-Level Params:
+	- JSON Arrays (Key-Value Pairs)
 	- Supports: Conditional execs, looping, pass context between tasks
+
++ Job-Level Params:
+	- Applied to all tasks
+	- Overrides same-keyed task params
