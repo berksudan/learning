@@ -244,3 +244,24 @@ WHEN NOT MATCHED THEN
 + LF Task Type Options:
 	- Notebook: Source Path, Compute Options (cluster config), etc.
 	- SQL: Task Name, SQL query, SQL warehouse
+
++ LF Task Control Flow Executions
+	- Sequential
+	- Parallel
+	- Conditional (if/else)
+	- Modular
+	- Iterative (for each)
+
++ LF Task Trigger Types	
+	- Manual: On-demand
+	- Scheduled: Cron
+	- API: Programmatic exec
+	- Event-driven: On file-arrival
+	- Table: Fata change events
+	- Continuous: Streaming workload
+
++ LF Job Compute Options
+	- Interactive / All-Purpose Clusters: shared, multi-user, expensive, no-prod, best for ad-hoc analysis / data-exploration / development
+	- Job Clusters: 50% cheaper, lifetime bound to job, prod-grade, subject to cloud provider start-up times, can be reused across tasks
+	- Serverless: fully managed, auto-scaling, optimized performance, simple, fast, reliable, cheap, better UX
+	- SQL WH: for sql queries, for dashboards, for BI, can use notebooks, low latency, high concurrency, autoscaling
