@@ -220,3 +220,27 @@ WHEN NOT MATCHED THEN
   INSERT (id, first_name, email, sign_up_date
   status)
 ```
+
+## LF Jobs Core Components
+
++ LF Job:
+	- Scheduling
+	- Coordinating
+	- Run operations: Data processing, ETL, analytics, ML
+	- Contains: 1+ tasks
+	- Supported Langs: SQL, Python, Scala, Java (via JAR), R
+
++ LF Task:
+	- Single unit of work in a Job
+	- Examples: Notebook, script, query, dbt, spark, py-wheels etc.
+
++ LF Task Common Options:
+	- Path
+	- Libs
+	- Params
+	- Notification
+	- Retry Policies
+
++ LF Task Type Options:
+	- Notebook: Source Path, Compute Options (cluster config), etc.
+	- SQL: Task Name, SQL query, SQL warehouse
