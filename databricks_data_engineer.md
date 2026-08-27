@@ -268,4 +268,11 @@ WHEN NOT MATCHED THEN
 	- SQL WH: for sql queries, for dashboards, for BI, can use notebooks, low latency, high concurrency, autoscaling, auto-start/stop, adjustable cluster size, cost-control
 
 + LF Task Orchestration and DAG
-	- DAG (Direct Acyclic Graph): no cycles 
+	- DAG (Direct Acyclic Graph): no cycles, task dependencies
+	- Run Multiple Tasks as a DAG
+	- Orchestrate tasks: via Dbx-UI, API, SDK, or Dbx Asset Bundles
+
++ LF Tasks - Common Workloads Patterns
+	- Sequence: data transformation, processing, cleaning. Example: bronze -> silver -> gold
+	- Funnel: `{A,B,C}` -> `{D}`, data collection/consolidation from 1+ sources
+	- Fan-out: `{A}` -> `{B,C,D}`, start pattern, single data source, data ingestion/distribution
