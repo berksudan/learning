@@ -275,4 +275,4 @@ WHEN NOT MATCHED THEN
 + LF Tasks - Common Workloads Patterns
 	- Sequence: data transformation, processing, cleaning. Example: bronze -> silver -> gold
 	- Funnel: `{A,B,C}` -> `{D}`, data collection/consolidation from 1+ sources
-	- Fan-out: `{A}` -> `{B,C,D}`, start pattern, single data source, data ingestion/distribution
+	- Fan-out / Star: `{A}` -> `{B,C,D}`, single data source, data ingestion/distribution
