@@ -287,8 +287,11 @@ WHEN NOT MATCHED THEN
 
 + Task-Level Params:
 	- JSON Arrays (Key-Value Pairs)
-	- Supports: Conditional execs, looping, pass context between tasks
+	- Conditional Exec Support: Data condition branching, env settings, business rules
+	- Looping Support: iteration counts, for-each loop arrays, complex processing
+	- Context Passing: Data flow for downstream tasks
 
 + Job-Level Params:
-	- Applied to all tasks
+	- Applied to all tasks automatically
 	- Overrides same-keyed task params
+	- Can be overriden at runtime on job run trigger
