@@ -276,3 +276,15 @@ WHEN NOT MATCHED THEN
 	- Sequence: data transformation, processing, cleaning. Example: bronze -> silver -> gold
 	- Funnel: `{A,B,C}` -> `{D}`, data collection/consolidation from 1+ sources
 	- Fan-out / Star: `{A}` -> `{B,C,D}`, single data source, data ingestion/distribution
+
+
+## LF Job Creation and Scheduling Details
+
++ LF Task Config Options Major Categories
+	1. Params & Dynamic Value Refs: Task/job level, adds flexibility
+	2. Retries: Task/job level, first line of defense, different retry strategies
+	3. Notification Alerts: Task/job level, granular target control
+
++ Task Params:
+	- Key-Value Pairs
+	- Supports: Conditional execs, looping, pass context between tasks
