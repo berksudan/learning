@@ -305,5 +305,18 @@ WHEN NOT MATCHED THEN
 	- Set TaskValues: `dbutils.jobs.taskValues.set(key="a_key", value="val")`
 	- Get TaskValues from another upstream task: `dbutils.jobs.taskValues.get(taskKey="task-name",key="a_key")`
 
-+ Dynamic Value References
-	- 
++ Dynamic Value References Intro
+	- Reference values at runtime
+	- Notation: `{{ }}`
+
++ Dynamic Value References - Job Context References:
+	- `{{job.start_time.day}}`: Get exec time
+	- `{{job.run_id}}`, `{{job.parameters.environment}}`: Get job-level params
+
++ Dynamic Value References - Task Context References:
+	- `{{task.name}}`
+	- `{{task.retry_count}}`
+
++ Dynamic Value References - Inter-Task Communication:
+	- `{{tasks.data-validation.values.record_count}}`: Get computed results from upstream tasks
+	- `{{tasks.file-processor.values.output_path}}`: Get dynamic filepaths from other tasks
