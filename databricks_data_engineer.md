@@ -296,10 +296,14 @@ WHEN NOT MATCHED THEN
 	- Overrides same-keyed task params
 	- Can be overriden at runtime on job run trigger
 
-+ Code
-	- Get Param: `dbutils.widgets.get("parameter_name")`
-	- Dynamically Set Task Values with Code: `dbutils.jobs.taskValues.set(key="a_name", value="lol")`
-	- Accessing a Parameter from another Task: `dbutils.jobs.taskValues.get(taskKey="task-name",key="catalog_name")`
++ Access Params in Task: `dbutils.widgets.get("parameter_name")`
 
++ Task Values - Dynamically Set/Get Task Params
+	- Computed at Runtime
+	- Dynamic Communications between tasks
+	- Good For: share computed/dynamic results, conditional logic, processing stats for monitoring 
+	- Set TaskValues: `dbutils.jobs.taskValues.set(key="a_key", value="val")`
+	- Get TaskValues from another upstream task: `dbutils.jobs.taskValues.get(taskKey="task-name",key="a_key")`
 
-	
++ Dynamic Value References
+	- 
