@@ -278,7 +278,7 @@ WHEN NOT MATCHED THEN
 	- Fan-out / Star: `{A}` -> `{B,C,D}`, single data source, data ingestion/distribution
 
 
-## LF Job Creation and Scheduling Details
+## LF Job Creation and Scheduling Details - Params, Notification, Retry
 
 + LF Task Config Options Major Categories
 	1. Params & Dynamic Value Refs: Task/job level, adds flexibility
@@ -325,3 +325,15 @@ WHEN NOT MATCHED THEN
 	- Job-Level Notifications: Customizable, On job completion
 	- Task-Level Notifications: Customizable, On task completion
 	- Targets: Email, teams, pagerDuty, Slack, Webhook
+	- Per-Task Customization
+	- Advanced Trigger Conditions - Late jobs: Timeout warning
+	- Advanced Trigger Conditions - Streaming Backlog: Detect delayed streaming workloads
+	- Advanced Trigger Conditions - Webhook: Custom conditions, API integration
+	- Advanced Trigger Conditions - Lifecycle: job start, job complete with fail/success
+
++ Retry Policy
+	- When (conditions) and how many times you retry
+	- You should consider: failure type, resource impact, downstream dependencies, business SLA
+
+
+## LF Job Creation and Scheduling Details - Triggers
