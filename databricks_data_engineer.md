@@ -320,3 +320,8 @@ WHEN NOT MATCHED THEN
 + Dynamic Value References - Inter-Task Communication:
 	- `{{tasks.data-validation.values.record_count}}`: Get computed results from upstream tasks
 	- `{{tasks.file-processor.values.output_path}}`: Get dynamic filepaths from other tasks
+
++ Notification Alerts
+	- Job-Level Notifications: Customizable, On job completion
+	- Task-Level Notifications: Customizable, On task completion
+	- Targets: Email, teams, pagerDuty, Slack, Webhook
