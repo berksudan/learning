@@ -254,12 +254,12 @@ WHEN NOT MATCHED THEN
 	- Iterative (for each)
 
 + LF Task Trigger Types	
-	- Manual: On-demand
+	- Manual: On-demand, Ad-hoc, can be run via UI/API/CLI/SDK/DABS, can be combined with other trigger types
 	- Scheduled: Cron
 	- API: Programmatic exec
-	- Event-driven: On file-arrival
-	- Table: Fata change events
-	- Continuous: Streaming workload
+	- file-Arrival: Event-driven, supports AWS S3, Azure Storage, GCP GCS, Dbx Volumes
+	- Table Update: Data change events
+	- Continuous: Streaming workload, built-in retry logic managed by Dbx
 
 + LF Job Compute Options
 	- Interactive / All-Purpose Clusters: shared, multi-user, expensive, no-prod, best for ad-hoc analysis / data-exploration / development
@@ -337,3 +337,4 @@ WHEN NOT MATCHED THEN
 
 
 ## LF Job Creation and Scheduling Details - Triggers
+
