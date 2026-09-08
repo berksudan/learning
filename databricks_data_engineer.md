@@ -257,7 +257,7 @@ WHEN NOT MATCHED THEN
 	- Scheduled: Cron, time-based processing, Timezone aware
 	- Manual: On-demand, ad-hoc, can be run via UI/API/CLI/SDK/DABS, can be combined with other trigger types
 	- File-Arrival: Event-driven, supports pattern matching, supports AWS-S3/AzureStorage/GCP-GCS/Dbx-Volumes
-	- Table Update: Data change events (insert, update, del, merge)
+	- Table Update: Data change events (insert, update, del, merge). can set `min time between consecutive triggers`, can set `wait after last change` (delay job exec untill all source tables updated)
 	- Continuous: Streaming workload, built-in retry logic managed by Dbx, good for real-time analytics, fraud-detection, IoT processing
 
 + LF Job Compute Options
@@ -334,6 +334,4 @@ WHEN NOT MATCHED THEN
 	- Defines: Conditions and how many times you retry
 	- You should consider: failure type, resource impact, downstream dependencies, business SLA
 
-
-## LF Job Creation and Scheduling Details - Triggers
 
