@@ -326,13 +326,13 @@ WHEN NOT MATCHED THEN
 	- Task-Level Notifications: Customizable, On task completion
 	- Targets: Email, teams, pagerDuty, Slack, Webhook
 	- Per-Task Customization
-	- Advanced Trigger Conditions - Late jobs: Timeout warning
-	- Advanced Trigger Conditions - Streaming Backlog: Detect delayed streaming workloads
-	- Advanced Trigger Conditions - Webhook: Custom conditions, API integration
-	- Advanced Trigger Conditions - Lifecycle: job start, job complete with fail/success
+	- Trigger Conditions - Lifecycle: job start, job complete with fail/success
+	- Trigger Conditions - Late jobs: Timeout warning
+	- Trigger Conditions - Streaming Backlog: Detect delayed streaming workloads
+	- Trigger Conditions - Webhook: Custom conditions, API integration
 
 + Retry Policy
-	- When (conditions) and how many times you retry
+	- Defines: Conditions and how many times you retry
 	- You should consider: failure type, resource impact, downstream dependencies, business SLA
 
 
