@@ -362,8 +362,23 @@ WHEN NOT MATCHED THEN
 
 ## Handling Task Failures and Monitoring Jobs Performance
 
-+ Handling Task Failures - Repair Feature with Rerun
++ Repair Feature with Rerun
 	- Targeted Recovery: Select the minimum unit
 	- Parameter Override Capability: adjust resources, change processing logic, etc.
-	- Cost Efficiency: 
-	- In case of Task Failure: (1) modify the task & rerun, (2) modify the params & rerun 
+	- Cost Efficiency: Reduces cost/time/resources
+	- In case of Task Failure: (1) modify the task & rerun, (2) modify the params & rerun
+
++ Repair Run Operational Benefits
+	- Resource Optimization: low recovery time, saves money/time
+	- Reduced Risk: no cascading failures
+	- Faster Resolution: Fails-fast, improves SLA adherence and responsiveness
+
++ After Repair Run
+	- Audit Trail: num-attempts, fixer person, time of fix,  
+	- Success Validation: Clear indication of which tasks were recovered successfully, enabling confidence in the repair process
+	- Learning Opportunities: Diagnose, improve, prevent
+
++ Monitoring Jobs Performance
+	- 
+	- 
+	- 
