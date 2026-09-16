@@ -342,7 +342,7 @@ WHEN NOT MATCHED THEN
 	- Handles: Complex Dependency Scenarios
 	- Dependency Conditions: all-succeeded, all-failed, 0-failed, 1+-succeeded, etc.
 	- Configure via UI: Configuration Settings
-	- 
+
 
 + If/Else Tasks
 	- Boolean conditional logic
@@ -358,3 +358,12 @@ WHEN NOT MATCHED THEN
 	- Resource Management: The container allocates resources across iterations, optimizing cluster utilization and preventing resource conflicts.
 	- For-each Task Type: Top-level container, defining input-array, concurrency, resource-alloc, 
 	- Nested Task Type: Takes array-item as `{{ input }}` and executed
+
+
+## Handling Task Failures and Monitoring Jobs Performance
+
++ Handling Task Failures - Repair Feature with Rerun
+	- Targeted Recovery: Select the minimum unit
+	- Parameter Override Capability: adjust resources, change processing logic, etc.
+	- Cost Efficiency: 
+	- In case of Task Failure: (1) modify the task & rerun, (2) modify the params & rerun 
