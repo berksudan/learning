@@ -335,3 +335,17 @@ WHEN NOT MATCHED THEN
 	- You should consider: failure type, resource impact, downstream dependencies, business SLA
 
 ## LF Job Creation and Scheduling Details - Conditional and Iterative Tasks
+
++ Run-if Conditional Task Dependencies
+	- Control: Based on upstream task outputs
+	- Handles: Partial Failure
+	- Handles: Complex Dependency Scenarios
+
++ If/Else Tasks
+	- Boolean conditional logic
+	- Examples: Data conditions, processing results, business rules
+
++ For Each Tasks
+	- Iterative Processing
+	- 
+	- 
