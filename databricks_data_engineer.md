@@ -334,4 +334,4 @@ WHEN NOT MATCHED THEN
 	- Defines: Conditions and how many times you retry
 	- You should consider: failure type, resource impact, downstream dependencies, business SLA
 
-
+## LF Job Creation and Scheduling Details - Conditional and Iterative Tasks
