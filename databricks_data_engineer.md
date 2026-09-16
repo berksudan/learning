@@ -350,9 +350,11 @@ WHEN NOT MATCHED THEN
 	- Example Conditions: Data conditions, param values, processing results, business rules, etc.
 	- Business Logic Examples: Data Quality Gates, Processing Volume Decisions, Environment-Specific Logic, Business Rule Implementation
 
-
 + For Each Tasks
 	- Iterative Processing
-	- Parallelism and performance optimization configurable
-	- Loops over an input array
-	- Concurrency: Configurable, parallel iteration run
+	- Input Array: Loops over an input array
+	- Concurrency: Configurable, parallel iteration run with performance optimization
+	- Dependency Management: Downstream tasks depend on the entire for-each container
+	- Resource Management: The container allocates resources across iterations, optimizing cluster utilization and preventing resource conflicts.
+	- For-each Task Type: top-level container, defining input-array, concurrency, resource-alloc, 
+	- Nested Task Type: executed task
