@@ -340,6 +340,7 @@ WHEN NOT MATCHED THEN
 	- Control: Based on upstream task outputs
 	- Handles: Partial Failure
 	- Handles: Complex Dependency Scenarios
+	- Dependency Conditions: all-succeeded, all-failed, none-failed, one-succeeded
 
 + If/Else Tasks
 	- Boolean conditional logic
