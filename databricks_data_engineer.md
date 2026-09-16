@@ -340,13 +340,19 @@ WHEN NOT MATCHED THEN
 	- Control: Based on upstream task outputs
 	- Handles: Partial Failure
 	- Handles: Complex Dependency Scenarios
-	- Dependency Conditions: all-succeeded, all-failed, none-failed, one-succeeded
+	- Dependency Conditions: all-succeeded, all-failed, 0-failed, 1+-succeeded, etc.
+	- Configure via UI: Configuration Settings
+	- 
 
 + If/Else Tasks
 	- Boolean conditional logic
-	- Examples: Data conditions, processing results, business rules
+	- Uses boolean operators: `==`, `!=`, `>`, `>=`, `<`, `<=`
+	- Example Conditions: Data conditions, param values, processing results, business rules, etc.
+	- Business Logic Examples: Data Quality Gates, Processing Volume Decisions, Environment-Specific Logic, Business Rule Implementation
+
 
 + For Each Tasks
 	- Iterative Processing
 	- Parallelism and performance optimization configurable
-	- 
+	- Loops over an input array
+	- Concurrency: Configurable, parallel iteration run
