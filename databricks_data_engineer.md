@@ -347,5 +347,5 @@ WHEN NOT MATCHED THEN
 
 + For Each Tasks
 	- Iterative Processing
-	- 
+	- Parallelism and performance optimization configurable
 	- 
