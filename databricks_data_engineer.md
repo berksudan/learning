@@ -356,5 +356,5 @@ WHEN NOT MATCHED THEN
 	- Concurrency: Configurable, parallel iteration run with performance optimization
 	- Dependency Management: Downstream tasks depend on the entire for-each container
 	- Resource Management: The container allocates resources across iterations, optimizing cluster utilization and preventing resource conflicts.
-	- For-each Task Type: top-level container, defining input-array, concurrency, resource-alloc, 
-	- Nested Task Type: executed task
+	- For-each Task Type: Top-level container, defining input-array, concurrency, resource-alloc, 
+	- Nested Task Type: Takes array-item as `{{ input }}` and executed
