@@ -378,7 +378,7 @@ WHEN NOT MATCHED THEN
 	- Success Validation: Clear indication of which tasks were recovered successfully, enabling confidence in the repair process
 	- Learning Opportunities: Diagnose, improve, prevent
 
-+ Monitoring Jobs Performance
-	- 
-	- 
++ Monitoring Jobs Performance with System Tables
+	- `system.lakeflow`: Built-in Catalog, logs all job activities across workspaces in region
+	- Timeline Tables: Timeline analysis, uses `period_{start,end}_time` for long running job's hourly duration
 	- 
