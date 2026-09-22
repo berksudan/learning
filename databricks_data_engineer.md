@@ -415,13 +415,19 @@ WHEN NOT MATCHED THEN
 	- Incremental Data Processing Mode: Supports batch/streaming
 	- Efficient Data Updates: On each refresh, added data in the source tables are fetched.
 	- SQL Command Usage: `CREATE OR REFRESH STREAMING TABLE`
-	- Streaming Read Syntax with Checkpointing: `FROM STREAM read_files()`
+	- Streaming Read Syntax with Checkpointing: `FROM STREAM read_files()` or `FROM STREAM src_streaming_tbl`
 	- AutoLoader Integration
 
 + MV (Materialized Views)
 	- Records are processed as required
 	- Returns accurate results for the current data state
 	- Used in Data Processings Tasks: Transforms, Aggs, pre-computed slow queries, frequently used computations
+	- Dynamic Query Recalculation: On each MV update, query results are recalculated
+	- Pipeline-Driven Maintenance: auto created/updated by the pipeline
+	- SQL Command Usage: `CREATE OR REFRESH MATERIALIZED VIEW`
+	- Flexible Pipeline Placement: Use anywhere in the pipeline
+	- Incremental Result Refresh: On Serverless compute if applicable
+	- Cost-Based Optimization: Fast/efficient transforms on Serverless compute
 
 + Views
 	- Virtual table/query with no physical data
