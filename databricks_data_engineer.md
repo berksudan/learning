@@ -385,3 +385,12 @@ WHEN NOT MATCHED THEN
 
 + Dashboards
   - Before use, the dashboard must be published and connected to a SQL warehouse
+
+
+## Spark Declarative Pipelines
+
++ Problem of Building Reliable Data Pipelines:
+	- Labor-Intensive Development
+	- Operational Complexity
+	- Siloed Batch & Streaming
+	- Solution: Spark Declarative Pipelines
