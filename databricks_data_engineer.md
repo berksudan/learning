@@ -394,3 +394,8 @@ WHEN NOT MATCHED THEN
 	- Operational Complexity
 	- Siloed Batch & Streaming
 	- Solution: Spark Declarative Pipelines
+
++ Spark Declarative Pipelines Advantages
+	- Simplified Pipeline Authoring: SQL/PY support, no orchestration logic (managed by LF), 0 boilerplate (built-in error handling & dep mgmt)
+	- Intelligent Optimization at Scale: Auto-scaling (as data volumes grow), self-healing, ⬇️ overhead (⬆️ reliability, ⬇️ operational cost)
+	- Unified Batch and Streaming: process historich/realtime data, adaptive performance/cost, same code for batch/streaming
