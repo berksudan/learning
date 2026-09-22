@@ -381,4 +381,6 @@ WHEN NOT MATCHED THEN
 + Monitoring Jobs Performance with System Tables
 	- `system.lakeflow`: Built-in Catalog, logs all job activities across workspaces in region
 	- Timeline Tables: Timeline analysis, uses `period_{start,end}_time` for long running job's hourly duration
-	- 
+
++ Dashboards
+  - Before use, the dashboard must be published and connected to a SQL warehouse
