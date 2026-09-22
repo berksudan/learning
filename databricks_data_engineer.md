@@ -409,6 +409,20 @@ WHEN NOT MATCHED THEN
 
 ## Spark Declarative Pipelines Dataset Types
 
-+ Streaming Tables (ST)
-	- Process new data only
++ ST (Streaming Tables)
+	- Process new data only, file names read once
 	- Support for streaming/incremental data processing
+	- Incremental Data Processing Mode: Supports batch/streaming
+	- Efficient Data Updates: On each refresh, added data in the source tables are fetched.
+	- SQL Command Usage: `CREATE OR REFRESH STREAMING TABLE`
+	- Streaming Read Syntax with Checkpointing: `FROM STREAM read_files()`
+	- AutoLoader Integration
+
++ MV (Materialized Views)
+	- Records are processed as required
+	- Returns accurate results for the current data state
+	- Used in Data Processings Tasks: Transforms, Aggs, pre-computed slow queries, frequently used computations
+
++ Views
+	- Virtual table/query with no physical data
+	- Types: Temporary View, View
