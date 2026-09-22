@@ -399,3 +399,8 @@ WHEN NOT MATCHED THEN
 	- Simplified Pipeline Authoring: SQL/PY support, no orchestration logic (managed by LF), 0 boilerplate (built-in error handling & dep mgmt)
 	- Intelligent Optimization at Scale: Auto-scaling (as data volumes grow), self-healing, ⬇️ overhead (⬆️ reliability, ⬇️ operational cost)
 	- Unified Batch and Streaming: process historich/realtime data, adaptive performance/cost, same code for batch/streaming
+	- Supports incremental load
+
++ Creating a Spark Declarative Pipeline
+	- Workspace Menu: `Options (⋮) Button` -> `Create` -> `ETL Pipeline`
+	- Jobs & Pipelines: `Create` -> `ETL Pipeline`
