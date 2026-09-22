@@ -434,4 +434,4 @@ WHEN NOT MATCHED THEN
 + Views
 	- Virtual table/query with no physical data
 	- 2 Types: Temporary View, View
-	- Temporary View: pipeline-scoped, no UC entry, `CREATE TEMPORARY VIEW` 
+	- Temporary View: pipeline-scoped, no UC entry, `CREATE TEMPORARY VIEW`
