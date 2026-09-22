@@ -262,7 +262,7 @@ WHEN NOT MATCHED THEN
 
 + LF Job Compute Options
 	- Interactive / All-Purpose Clusters: shared, multi-user, expensive, no-prod, best for ad-hoc analysis / data-exploration / development
-	- Job Clusters: 50% cheaper, lifetime bound to job, prod-grade, subject to cloud provider start-up times, can be reused across tasks
+	- Job Clusters: High start-up time, 50% cheaper, lifetime bound to job, prod-grade, subject to cloud provider start-up times, can be reused across tasks
 	- Serverless: fully managed, auto-scaling, optimized performance, simple, fast, reliable, cheap, better UX, performance-mode for faster job start-up/exec
 	- SQL WH: for sql queries, for dashboards, for BI, can use notebooks, low latency, high concurrency, autoscaling, auto-start/stop, adjustable cluster size, cost-control
 
@@ -363,6 +363,7 @@ WHEN NOT MATCHED THEN
 ## Handling Task Failures and Monitoring Jobs Performance
 
 + Repair Feature with Rerun
+	- Repair run reruns: The failed task & all its dependent downstream tasks
 	- Targeted Recovery: Select the minimum unit
 	- Parameter Override Capability: adjust resources, change processing logic, etc.
 	- Cost Efficiency: Reduces cost/time/resources
