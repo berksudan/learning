@@ -428,7 +428,10 @@ WHEN NOT MATCHED THEN
 	- Flexible Pipeline Placement: Use anywhere in the pipeline
 	- Incremental Result Refresh: On Serverless compute if applicable
 	- Cost-Based Optimization: Fast/efficient transforms on Serverless compute
+	- Unlike streaming tables, materialized views automatically track changes and manage their own refreshes based on the upstream source
+	- No `STREAM` Keyword: in `FROM` clause
 
 + Views
 	- Virtual table/query with no physical data
-	- Types: Temporary View, View
+	- 2 Types: Temporary View, View
+	- Temporary View: pipeline-scoped, no UC entry, `CREATE TEMPORARY VIEW` 
