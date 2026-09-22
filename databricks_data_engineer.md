@@ -387,7 +387,7 @@ WHEN NOT MATCHED THEN
   - Before use, the dashboard must be published and connected to a SQL warehouse
 
 
-## Spark Declarative Pipelines
+## Spark Declarative Pipelines Overview
 
 + Problem of Building Reliable Data Pipelines:
 	- Labor-Intensive Development
@@ -404,3 +404,11 @@ WHEN NOT MATCHED THEN
 + Creating a Spark Declarative Pipeline
 	- Workspace Menu: `Options (⋮) Button` -> `Create` -> `ETL Pipeline`
 	- Jobs & Pipelines: `Create` -> `ETL Pipeline`
+
+
+
+## Spark Declarative Pipelines Dataset Types
+
++ Streaming Tables (ST)
+	- Process new data only
+	- Support for streaming/incremental data processing
