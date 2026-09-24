@@ -512,5 +512,14 @@ WHEN NOT MATCHED THEN
 	- Supports: All Combination of Event Types
 
 + Production-Ready Pipeline - Event Log Monitoring
-	- Event Log: Detailed runtime info
-	- Tracks: Exec status, num-rows, errors, warns, performance metrics
+	- Event Logs: Detailed runtime info
+	- Tracks: Exec status, num-rows, errors, warns, health/performance metrics
+	- Event Log Type - Audit Logs: Full action history in pipeline/datasets
+	- Event Log Type - Data Quality Checks: expectation/constraint results, pass/fail counts, violation details
+	- Event Log Type - Pipeline Progress: status/progress of pipeline runs, processed #rows, completed stages, current exec state
+	- Event Log Type - Data Lineage: data flows/transforms from SRC to DST
+
++ Querying the Declarative Pipeline Event Log
+	- Default Behavior: Event log in hidden UC table in pipeline's default catalog/schema
+	- Publish to UC (Recommended): Use advanced settings, publish as UC table in a target catalog/schema/table
+	- Query Metastore Table: `SELECT * FROM <catalog>.<schema>.<event_log_table_name>`
