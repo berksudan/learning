@@ -462,7 +462,7 @@ WHEN NOT MATCHED THEN
 	- Default behavior on no action
 	- Log Violations: incl. valid/invalid record counts and other metrics
 	- Keep Invalid Rows: still written to target
-	- SQL:  `CONSTRAINT valid_notification EXPECT (notifications IN ('Y','N'))`
+	- SQL:  `CONSTRAINT valid_binary_col EXPECT (binary_col IN ('Y','N'))`
 
 + `DROP` Violation Action
 	- Drop invalid Rows on violation
@@ -479,3 +479,8 @@ WHEN NOT MATCHED THEN
 	- `(CONSTRAINT <CSTRT_STMT>, CONSTRAINT <CSTRT_STMT>)`
 	- `AS SELECT <SELECT_STMT>`
 	- `FROM STREAM another_tbl`
+
+
+## Streaming Joins and Deploying Pipelines to Production
+
++ 
