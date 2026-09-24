@@ -523,3 +523,8 @@ WHEN NOT MATCHED THEN
 	- Default Behavior: Event log in hidden UC table in pipeline's default catalog/schema
 	- Publish to UC (Recommended): Use advanced settings, publish as UC table in a target catalog/schema/table
 	- Query Metastore Table: `SELECT * FROM <catalog>.<schema>.<event_log_table_name>`
+
++ Production-Ready Tables w/ Comment and Table Properties
+	- `CREATE OR REFRESH MATERIALIZED VIEW tbl`
+	- `COMMENT "comment"`
+	- `TBLPROPERTIES ( "quality" = "bronze", "pipelines.reset.allowed" = false )`
