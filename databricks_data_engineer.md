@@ -455,6 +455,7 @@ WHEN NOT MATCHED THEN
 
 + Expectations
 	- Row-by-row data quality rules
+	- Materialized Views with Expectations: Fully refreshed during pipeline runs
 	- SQL: `CONSTRAINT constraint_name EXPECT (column_condition) [ON VIOLATION action]`
 
 + `WARN` Violation Action
@@ -471,4 +472,10 @@ WHEN NOT MATCHED THEN
 + `FAIL` Violation Action
 	- On Violation: fail specific flow
 	- Manual Intervention: Required
-	- 
+	- SQL: `CONSTRAINT valid_id EXPECT (customer_id IS NOT NULL) ON VIOLATION FAIL UPDATE`
+
++ Full SQL Example with Constraints
+	- `CREATE OR REFRESH STREAMING TABLE tbl`
+	- `(CONSTRAINT <CSTRT_STMT>, CONSTRAINT <CSTRT_STMT>)`
+	- `AS SELECT <SELECT_STMT>`
+	- `FROM STREAM another_tbl`
