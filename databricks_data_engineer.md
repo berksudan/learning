@@ -446,4 +446,6 @@ WHEN NOT MATCHED THEN
 	- SQL: `CREATE VIEW`
 	- UC Entry
 
-+ DLT (Delta Live Tavbles) to SDP: DLT is deprecated
++ DLT (Delta Live Tables) to SDP: DLT is deprecated
+
++ The Declarative Pipeline Graph: automatic pipeline dependency parsing
