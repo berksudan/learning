@@ -481,6 +481,23 @@ WHEN NOT MATCHED THEN
 	- `FROM STREAM another_tbl`
 
 
-## Streaming Joins and Deploying Pipelines to Production
+## SDP (Spark Declarative Pipelines) - Streaming Joins and Deploying Pipelines to Production
 
-+ 
++ Join Type #1 - Stream-Snapshot Join
+	- Input: Streaming Table ⋈ Static Table
+	- Output: (New) Streaming Table
+	- Static Table: A lookup table
+	- Incrementally join new data
+
++ Join Type #2 - Streaming via MV (Materialized View)
+	- Input: Streaming Table ⋈ Streaming Table
+	- Output: MV
+	- On Each Pipeline Run: Join ALL rows from both tables
+	- Incremental MV Refresh: Depending on pipeline configs/compute
+
++ Join Type #3 - Stream-Stream Join (Advanced)
+	- Input: Streaming Table ⋈ Streaming Table
+	- Output: Streaming Table
+	- Incrementally join new data from two streaming tables as it arrives
+	- Process: Only NEW data, no past data
+	- Involves: windowing, watermarking, etc.
