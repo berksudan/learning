@@ -407,7 +407,7 @@ WHEN NOT MATCHED THEN
 
 
 
-## SDP (Spark Declarative Pipelines) Dataset Types
+## SDP (Spark Declarative Pipelines) - Dataset Types
 
 + ST (Streaming Tables)
 	- Process new data only, file names read once
@@ -449,3 +449,26 @@ WHEN NOT MATCHED THEN
 + DLT (Delta Live Tables) to SDP: DLT is deprecated
 
 + The Declarative Pipeline Graph: automatic pipeline dependency parsing
+
+
+## SDP (Spark Declarative Pipelines) - Data Quality with Expectations
+
++ Expectations
+	- Row-by-row data quality rules
+	- SQL: `CONSTRAINT constraint_name EXPECT (column_condition) [ON VIOLATION action]`
+
++ `WARN` Violation Action
+	- Default behavior on no action
+	- Log Violations: incl. valid/invalid record counts and other metrics
+	- Keep Invalid Rows: still written to target
+	- SQL:  `CONSTRAINT valid_notification EXPECT (notifications IN ('Y','N'))`
+
++ `DROP` Violation Action
+	- Drop invalid Rows on violation
+	- Log Dropped Rows Counts: with other metrics
+	- SQL: `CONSTRAINT valid_date EXPECT ( data > "2025-01-01 ) ON VIOLATION DROP ROW`
+
++ `FAIL` Violation Action
+	- On Violation: fail specific flow
+	- Manual Intervention: Required
+	- 
