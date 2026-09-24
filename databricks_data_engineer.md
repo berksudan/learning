@@ -503,7 +503,14 @@ WHEN NOT MATCHED THEN
 	- Involves: windowing, watermarking, etc.
 
 + Production-Ready Pipeline - Scheduling
-	- 
-	- 
-	- 
-	- 
+	- Triggered Mode: Manual or recurring (cron-style) refreshes, stops once updates are done, best for batches
+	- Continuous Mode: Near real-time, expensive, updates when source data changes, best for freshness/responsiveness
+	- Refresh w/o manual triggers
+
++ Production-Ready Pipeline - Email Notifications
+	- Alert Event Types: Start, success, failure
+	- Supports: All Combination of Event Types
+
++ Production-Ready Pipeline - Event Log Monitoring
+	- Event Log: Detailed runtime info
+	- Tracks: Exec status, num-rows, errors, warns, performance metrics
