@@ -407,7 +407,7 @@ WHEN NOT MATCHED THEN
 
 
 
-## Spark Declarative Pipelines Dataset Types
+## SDP (Spark Declarative Pipelines) Dataset Types
 
 + ST (Streaming Tables)
 	- Process new data only, file names read once
@@ -431,7 +431,19 @@ WHEN NOT MATCHED THEN
 	- Unlike streaming tables, materialized views automatically track changes and manage their own refreshes based on the upstream source
 	- No `STREAM` Keyword: in `FROM` clause
 
-+ Views
++ View Overview & Limitations:
 	- Virtual table/query with no physical data
-	- 2 Types: Temporary View, View
-	- Temporary View: pipeline-scoped, no UC entry, `CREATE TEMPORARY VIEW`
+	- No `OR REFRESH` Clause in SQL
+	- UC Pipeline: Mandatory type
+	- No Streaming Queries: Can be in views
+	- Cannot be Streaming Source: For a Pipeline 
+
++ Temporary View
+	- Pipeline-Scoped: No UC entry
+	- SQL-Based Intermediate Layer: `CREATE TEMPORARY VIEW`
+
++ View:
+	- SQL: `CREATE VIEW`
+	- UC Entry
+
++ DLT (Delta Live Tavbles) to SDP: DLT is deprecated
