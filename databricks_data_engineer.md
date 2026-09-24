@@ -487,7 +487,7 @@ WHEN NOT MATCHED THEN
 	- Input: Streaming Table ⋈ Static Table
 	- Output: (New) Streaming Table
 	- Static Table: A lookup table
-	- Incrementally join new data
+	- Incremental Join: Only new streaming rows joined with static lookup table
 
 + Join Type #2 - Streaming via MV (Materialized View)
 	- Input: Streaming Table ⋈ Streaming Table
@@ -501,3 +501,9 @@ WHEN NOT MATCHED THEN
 	- Incrementally join new data from two streaming tables as it arrives
 	- Process: Only NEW data, no past data
 	- Involves: windowing, watermarking, etc.
+
++ Production-Ready Pipeline - Scheduling
+	- 
+	- 
+	- 
+	- 
