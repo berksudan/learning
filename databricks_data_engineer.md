@@ -405,6 +405,9 @@ WHEN NOT MATCHED THEN
 	- Workspace Menu: `Options (⋮) Button` -> `Create` -> `ETL Pipeline`
 	- Jobs & Pipelines: `Create` -> `ETL Pipeline`
 
++ Pipeline Parameterization
+	- Pipeline Parameters in SQL: use named parameter syntax, e.g. `FROM STREAM read_files(:input_path, format => 'json')`
+	- Legacy Configuration Values: use `${key}` substitution in SQL, e.g. `FROM STREAM read_files('${input_path}', format => 'json')`
 
 
 ## SDP (Spark Declarative Pipelines) - Dataset Types
@@ -415,7 +418,7 @@ WHEN NOT MATCHED THEN
 	- Incremental Data Processing Mode: Supports batch/streaming
 	- Efficient Data Updates: On each refresh, added data in the source tables are fetched.
 	- SQL Command Usage: `CREATE OR REFRESH STREAMING TABLE`
-	- Streaming Read Syntax with Checkpointing: `FROM STREAM read_files()` or `FROM STREAM src_streaming_tbl`
+	- Streaming Read Syntax with Checkpointing: `FROM STREAM read_files()` or `FROM STREAM(src_streaming_tbl)`
 	- AutoLoader Integration
 
 + MV (Materialized Views)
@@ -550,4 +553,4 @@ WHEN NOT MATCHED THEN
 	- Contains: `KEYS`, `APPLY AS DELETE WHEN`, `SEQUENCE BY`, `COLUMNS`, `STORED AS`
 	- Use SCD Type 1: `AUTO CDC INTO with STORED AS SCD TYPE 1`
 	- Use SCD Type 2: `AUTO CDC INTO with STORED AS SCD TYPE 2`
-	- Full Example: `CREATE FLOW flw AS AUTO CDC INTO stream_dst_tbl FROM STREAM (stream_src_tbl)`
+	- Full Example: `CREATE FLOW flw AS AUTO CDC INTO stream_dst_tbl FROM STREAM(stream_src_tbl)`
