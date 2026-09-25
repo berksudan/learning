@@ -556,10 +556,15 @@ WHEN NOT MATCHED THEN
 	- Full Example: `CREATE FLOW flw AS AUTO CDC INTO stream_dst_tbl FROM STREAM(stream_src_tbl)`
 
 
-## Intro to Modularizing PySpark Code (?)
+## Intro to PySpark	
 
 + Software Engineering with Databricks
 	- Databricks Workspaces: Code, unit-tests, use notebooks/files (SQL, PY, Scala, etc.) 
 	- Databricks Git folders
 	- UC (Unity Catalog): Isolate envs in Workspace(s)
 	- Databricks Deployment Tools: Testing, CI/CD
+
++ Benefits of Modularized Pyspark Code with Functions	
+	- Easy Maintenance
+	- Reuse
+	- Testing
