@@ -528,3 +528,12 @@ WHEN NOT MATCHED THEN
 	- `CREATE OR REFRESH MATERIALIZED VIEW tbl`
 	- `COMMENT "comment"`
 	- `TBLPROPERTIES ( "quality" = "bronze", "pipelines.reset.allowed" = false )`
+
+
+## CDC (Change Data Capture) Overview
+
++ CDC (Change Data Capture): track and capture changes in a data source
+
++ SCD (Slowly Changing Dimension) Type 1: Overwrite/Delete/Insert, no history kept
+
++ SCD (Slowly Changing Dimension) Type 2:
