@@ -545,7 +545,8 @@ WHEN NOT MATCHED THEN
 	- On Delete: Old record's `is_active`=`True`
 
 + AUTO CDC INTO:
-	- Replaces: Complex `MERGE INTO` batch logic
+	- Good for streaming
+	- Replaces: Complex `MERGE INTO` batch logic in streaming logic
 	- Contains: `KEYS`, `APPLY AS DELETE WHEN`, `SEQUENCE BY`, `COLUMNS`, `STORED AS`
 	- Use SCD Type 1: `AUTO CDC INTO with STORED AS SCD TYPE 1`
 	- Use SCD Type 2: `AUTO CDC INTO with STORED AS SCD TYPE 2`
