@@ -530,10 +530,20 @@ WHEN NOT MATCHED THEN
 	- `TBLPROPERTIES ( "quality" = "bronze", "pipelines.reset.allowed" = false )`
 
 
-## CDC (Change Data Capture) Overview
+## Spark Declarative Pipelines - CDC (Change Data Capture) Overview
 
 + CDC (Change Data Capture): track and capture changes in a data source
 
-+ SCD (Slowly Changing Dimension) Type 1: Overwrite/Delete/Insert, no history kept
++ SCD (Slowly Changing Dimension) Type 1:
+	- Overwrite existing / Delete existing / Insert new
+	- No historical tracking
 
 + SCD (Slowly Changing Dimension) Type 2:
+	- Historical Tracking: Always keep old records
+	- On Update: Same Key, Old record's `end_date`=`FILLED` col filled, new record's `end_date`=`null`
+	- On Insert: Different Key, new record's `end_date`=`null`
+	- On Delete: Old record's `is_active`=`True`
+
++ AUTO CDC INTO:
+	- `AUTO CDC INTO with STORED AS SCD TYPE 1`
+	- `AUTO CDC INTO with STORED AS SCD TYPE 2`
