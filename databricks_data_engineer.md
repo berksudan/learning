@@ -545,5 +545,8 @@ WHEN NOT MATCHED THEN
 	- On Delete: Old record's `is_active`=`True`
 
 + AUTO CDC INTO:
-	- `AUTO CDC INTO with STORED AS SCD TYPE 1`
-	- `AUTO CDC INTO with STORED AS SCD TYPE 2`
+	- Replaces: Complex `MERGE INTO` batch logic
+	- Contains: `KEYS`, `APPLY AS DELETE WHEN`, `SEQUENCE BY`, `COLUMNS`, `STORED AS`
+	- Use SCD Type 1: `AUTO CDC INTO with STORED AS SCD TYPE 1`
+	- Use SCD Type 2: `AUTO CDC INTO with STORED AS SCD TYPE 2`
+	- Full Example: `CREATE FLOW flw AS AUTO CDC INTO stream_dst_tbl FROM STREAM (stream_src_tbl)`
