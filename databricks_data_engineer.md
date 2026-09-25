@@ -409,7 +409,7 @@ WHEN NOT MATCHED THEN
 	- Pipeline Parameters in SQL: use named parameter syntax, e.g. `FROM STREAM read_files(:input_path, format => 'json')`
 	- Legacy Configuration Values: use `${key}` substitution in SQL, e.g. `FROM STREAM read_files('${input_path}', format => 'json')`
 
-
+		
 ## SDP (Spark Declarative Pipelines) - Dataset Types
 
 + ST (Streaming Tables)
@@ -554,3 +554,12 @@ WHEN NOT MATCHED THEN
 	- Use SCD Type 1: `AUTO CDC INTO with STORED AS SCD TYPE 1`
 	- Use SCD Type 2: `AUTO CDC INTO with STORED AS SCD TYPE 2`
 	- Full Example: `CREATE FLOW flw AS AUTO CDC INTO stream_dst_tbl FROM STREAM(stream_src_tbl)`
+
+
+## Intro to Modularizing PySpark Code
+
++ Software Engineering with Databricks
+	- Databricks Workspaces: Code, unit-tests, use notebooks/files (SQL, PY, Scala, etc.) 
+	- Databricks Git folders
+	- UC (Unity Catalog): Isolate envs in Workspace(s)
+	- Databricks Deployment Tools: Testing, CI/CD
