@@ -570,5 +570,22 @@ WHEN NOT MATCHED THEN
 	- Testing
 
 + DevOps in Databricks:
+	- CI/CD: Continuously integrate/test/deploy
 	- Automate LF jobs
 	- Streamline processes
+
++ DevOps Benefits:
+	- ⬆️ Scalability
+	- ⬆️ Reliability
+	- ⬆️ Collaboration
+	- ⬆️ Deployment Speed
+
++ DevOps Lifecycle:
+	1. DEV - Plan: Project goals, requirements
+	2. DEV - Code: Source code, feature-developing
+	3. DEV - Build: Compile into executables with dependencies
+	4. DEV - Test: automated-tests, catch bugs
+	5. OPS - Release: Application packaging
+	6. OPS - Deploy: Project to Prod for users
+	7. OPS - Operate: Check performance, early issues, resources
+	8. OPS - Monitor: Track, gather feedback, continuously improve
