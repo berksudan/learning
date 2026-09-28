@@ -570,9 +570,12 @@ WHEN NOT MATCHED THEN
 	- Testing
 
 + DevOps in Databricks:
-	- CI/CD: Continuously integrate/test/deploy
-	- Automate LF jobs
+	- Automate CI/CD: Continuously integrate/test/deploy
+	- Automate Prod-grade LF jobs
 	- Streamline processes
+	- Version Control
+	- Orchestration & Automation
+	- System Performance Monitoring
 
 + DevOps Benefits:
 	- ⬆️ Scalability
@@ -589,3 +592,19 @@ WHEN NOT MATCHED THEN
 	6. OPS - Deploy: Project to Prod for users
 	7. OPS - Operate: Check performance, early issues, resources
 	8. OPS - Monitor: Track, gather feedback, continuously improve
+
++ DataOps (DevOps + DataEng):
+	- Automate data-pipelines & data-flows
+	- Optimize data processing
+	- Centralize data discovery/mgmt/governance
+	- Establish traceable data lineage and monitoring
+	- Data Quality Monitoring
+	- ⬇️ bottlenecks
+	- ⬆️ insights
+
++ MLOps (DevOps + MLEng)	
+	- Streamline deployment / management of ML models
+	- Performance monitoring
+	- Manage Model Lifecycle
+	- Treat: model=data, model-code=software
+	- Quick iterations
