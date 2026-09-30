@@ -649,3 +649,11 @@ WHEN NOT MATCHED THEN
 
 + CD (Continuous Deployment):
 	- Fully Automated Deploy: To STAGE and PROD
+
+
+## Planning a Project in Databricks
+
++ Data Categories per ENV:
+	- DEV Data: small, often static, often anonymized, often synthetic, best for rapid dev
+	- STG Data: similar to PRD data, realistic ground for testing/validation
+	- PRD Data: real/live/operational data, continuous update, requires high security/privacy/compliance
