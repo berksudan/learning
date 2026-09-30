@@ -629,3 +629,14 @@ WHEN NOT MATCHED THEN
 + CI/CD Adoption:
 	- Common practice in SW dev
 	- ⬆️ importance in DataEng & DataScience
+
++ CI Elements
+	- Early Issue (bug / conflict) Detection: easy/quick fix
+	- Faster Development Cycle
+	- Better Collaboration and Code Quality: teamwork and cleaner/modular code
+	- Automated Testing and Validation
+
++ Testing Pyramid (Base to Top)
+	1. Unit Tests: Individual part testing, fast, cheap, high coverage, automated; e.g. `Custom PySpark Funcs`
+	2. Integration Tests: interaction of components/systems, e.g. `notebooks` <> `SDP` <> `jobs`
+	3. System Tests: entire app testing, e.g. `e2e data-pipeline in a job`
