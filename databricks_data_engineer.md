@@ -641,8 +641,11 @@ WHEN NOT MATCHED THEN
 	2. Integration Tests: slower, interaction of components/systems, e.g. `notebooks` <> `SDP` <> `jobs`
 	3. System Tests: slow/expensive, entire app testing, e.g. `e2e data-pipeline in a job`
 
-+ CD Elements:
-	- 
-	- 
-	- 
-	- 
++ Continuous Delivery: 
+	- Automated Push to STAGE
+	- Seamlesss Updates
+	- Provides flexibility
+	- Manual: Deploy to PROD
+
++ CD (Continuous Deployment):
+	- Fully Automated Deploy: To STAGE and PROD
