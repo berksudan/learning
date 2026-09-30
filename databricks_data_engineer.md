@@ -611,3 +611,21 @@ WHEN NOT MATCHED THEN
 
 
 ## CI/CD in Databricks
+
++ DataOps as CI/CD:
+	- Business Requirements to Business Value
+	- CI (Continuous Integration): Plan, Develop, Build, ENV mgmt, Test
+	- CD (Continuous Deployment): Release, Deploy, Operate, Monitor
+
++ CI/CD Process:
+	- Short Cycles: In development and delivery
+	- Automated Pipelines: Faster deployment and consistency
+
++ CI/CD Overview:
+	- Automated/Streamlined Development
+	- Automated Deployment
+	- Improve: code quality, speed, reliability
+
++ CI/CD Adoption:
+	- Common practice in SW dev
+	- ⬆️ importance in DataEng & DataScience
