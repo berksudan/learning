@@ -640,3 +640,9 @@ WHEN NOT MATCHED THEN
 	1. Unit Tests: Individual part testing, fast/cheap, high coverage, automated; e.g. `Custom PySpark Funcs`
 	2. Integration Tests: slower, interaction of components/systems, e.g. `notebooks` <> `SDP` <> `jobs`
 	3. System Tests: slow/expensive, entire app testing, e.g. `e2e data-pipeline in a job`
+
++ CD Elements:
+	- 
+	- 
+	- 
+	- 
