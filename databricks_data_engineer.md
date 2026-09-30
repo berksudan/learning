@@ -653,7 +653,11 @@ WHEN NOT MATCHED THEN
 
 ## Planning a Project in Databricks
 
-+ Data Categories per ENV:
++ Data Categories per ENV (DEV/STG/PRD):
 	- DEV Data: small, often static, often anonymized, often synthetic, best for rapid dev
-	- STG Data: similar to PRD data, realistic ground for testing/validation
+	- STG Data: similar to PRD data, might be anonymized, realistic ground for testing/validation
 	- PRD Data: real/live/operational data, continuous update, requires high security/privacy/compliance
+
++ Isolation:
+	- Per ENV (DEV/STG/PRD): 1 Workspace + 1 Catalog
+	- 
