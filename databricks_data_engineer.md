@@ -608,3 +608,6 @@ WHEN NOT MATCHED THEN
 	- Manage Model Lifecycle
 	- Treat: model=data, model-code=software
 	- Quick iterations
+
+
+## CI/CD in Databricks
