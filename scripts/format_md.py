@@ -15,29 +15,10 @@ Usage: scripts/format_md.py [FILE ...]   (defaults to every *.md in the repo roo
 import math
 import re
 import sys
-from dataclasses import dataclass
 from pathlib import Path
 
 FENCE = re.compile(r"^\s*```")
 BULLET = re.compile(r"^(\t*)[-+*] ")
-
-
-@dataclass
-class Line:
-    text: str
-    in_code: bool
-
-    @property
-    def blank(self) -> bool:
-        return not self.in_code and self.text == ""
-
-    @property
-    def indented(self) -> bool:
-        return not self.in_code and self.text.startswith("\t")
-
-    @property
-    def opens_block(self) -> bool:
-        return not self.in_code and (self.text.startswith("+ ") or self.text.startswith("#"))
 
 
 def normalize_line(text: str) -> str:
@@ -49,35 +30,27 @@ def normalize_line(text: str) -> str:
     return BULLET.sub(lambda m: m.group(1) + ("- " if m.group(1) else "+ "), text)
 
 
-def classify(raw_lines: list[str]) -> list[Line]:
-    lines = []
-    in_code = False
-    for raw in raw_lines:
-        is_fence = bool(FENCE.match(raw))
-        if is_fence:
-            in_code = not in_code
-        lines.append(Line(raw.rstrip() if in_code or is_fence else normalize_line(raw), in_code or is_fence))
-    return lines
-
-
-def next_content(lines: list[Line], index: int) -> Line | None:
-    return next((line for line in lines[index + 1 :] if not line.blank), None)
-
-
 def format_text(text: str) -> str:
-    lines = classify(text.split("\n"))
-    out: list[Line] = []
-    for index, line in enumerate(lines):
-        following = next_content(lines, index)
-        if line.blank:
-            if not out or out[-1].blank or following is None or following.indented:
-                continue
-        elif line.opens_block and out and not out[-1].blank:
-            out.append(Line("", False))
-        if line.text.startswith("+ ") and not line.in_code and following and following.indented:
-            line = Line(line.text.removesuffix(":"), False)
+    # Blank lines are held back as a pending gap and only written once the next line shows whether they belong.
+    out: list[str] = []
+    in_code = gap = False
+    for raw in text.split("\n"):
+        is_fence = bool(FENCE.match(raw))
+        code = in_code or is_fence
+        in_code ^= is_fence
+        line = raw.rstrip() if code else normalize_line(raw)
+        if not code and not line:
+            gap = True
+            continue
+        indented = not code and line.startswith("\t")
+        if out:
+            if (gap and not indented) or (not code and line.startswith(("+ ", "#"))):
+                out.append("")
+            elif indented and out[-1].startswith("+ "):
+                out[-1] = out[-1].removesuffix(":")
         out.append(line)
-    return "\n".join(line.text for line in out) + "\n"
+        gap = False
+    return "\n".join(out) + "\n"
 
 
 def main() -> None:
