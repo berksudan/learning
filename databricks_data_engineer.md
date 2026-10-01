@@ -659,5 +659,5 @@ WHEN NOT MATCHED THEN
 	- PRD Data: real/live/operational data, continuous update, requires high security/privacy/compliance
 
 + Isolation:
-	- Per ENV (DEV/STG/PRD): 1 Workspace + 1 Catalog
-	- 
+	- 1 ENV per Workspace: 1 UC+Storage
+	- N ENVs per Workspace: N UC+Storage, use UC Access Control
