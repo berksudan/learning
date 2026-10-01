@@ -669,3 +669,16 @@ WHEN NOT MATCHED THEN
 + `pytest` Fixtures
 	- `@pytest.fixture`: reusable test setup, injected by naming it as a test arg
 	- Scope: `function` (default) / `module` / `session`, e.g. one shared `SparkSession`
+
+
+## Integration Tests with SDP and Jobs
+
++ SDP Expectations:
+	- Checks pipeline's results and tables
+	- Shared SDP Code as Notebooks: defines transform logic using custom funcs.
+	- For all ENVs: DEV, STG, PRD
+	- Validation Examples: #Rows, #DistinctValuesPerCol
+	- Expactions in ENVs: Test tables leverage in DEV/STG.
+
++ LF Jobs:
+	- DBX Job with 1+ Tasks
