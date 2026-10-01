@@ -610,7 +610,7 @@ WHEN NOT MATCHED THEN
 	- Quick iterations
 
 
-## CI/CD in Databricks
+## CI/CD and Environment Isolation in Databricks
 
 + DataOps as CI/CD:
 	- Business Requirements to Business Value
@@ -650,9 +650,6 @@ WHEN NOT MATCHED THEN
 + CD (Continuous Deployment):
 	- Fully Automated Deploy: To STAGE and PROD
 
-
-## Planning a Project in Databricks
-
 + Data Categories per ENV (DEV/STG/PRD):
 	- DEV Data: small, often static, often anonymized, often synthetic, best for rapid dev
 	- STG Data: similar to PRD data, might be anonymized, realistic ground for testing/validation
@@ -661,3 +658,15 @@ WHEN NOT MATCHED THEN
 + Isolation:
 	- 1 ENV per Workspace: 1 UC+Storage
 	- N ENVs per Workspace: N UC+Storage, use UC Access Control
+
+
+## Unit Tests for PySpark
+
++ Unit Test Benefits:
+	- Isolate Problem with small data
+	- Early Bug Detection
+	- Eases Refactoring/Debugging
+
++ Easy Unit Testing with `Pyspark.testing.utils` Funcs
+	- `assertDataFrameEqual (actual, expected[, ...])`
+	- `assertSchemaEqual (actual, expected)`
