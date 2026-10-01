@@ -3,6 +3,7 @@
 ## Databricks Data Intelligence Platform
 
 + Available for Data and Business Teams
+
 + 4 Core Pillars
 	1. Lakeflow: Ingest, ETL, Streaming
 	2. Databricks SQL: Data Warehousing
@@ -10,7 +11,6 @@
 	4. Mosaic AI
 
 + Supports: Iceberg, Delta Lake, Parquet
-
 + Simplified, open-source, 1 source of truth
 
 ## UC (Unity Catalog)
@@ -20,16 +20,16 @@
 
 + Main Functions
 	- Security: Access Control, Auditing
-	- Collaboration: Discovery, Secured open data sharing 
-	- Quality: Lineage, Quality Monitoring 
+	- Collaboration: Discovery, Secured open data sharing
+	- Quality: Lineage, Quality Monitoring
 	- Insights: Cost Control, Business Semantics
 
 + All signals into UC feeds AI
+
 + Databricks gains awareness of your unique data and business context
 	- Search: Find the right data/AI assets
 	- Relevance: Highly relevant response
 	- Secure: return only allowed data
-
 
 ## Lakeflow (3 Components): IncomingData
 
@@ -54,12 +54,10 @@
 + Complete Agent Platform
 + GenAI based Applications
 + Supports: MLFlow, AutoML
-
 + DataPrep: ingestion, ML features, vector index
 + Agents reason across every enterprise ecosystem
 + Models: Supports all (existing/future) GenAI/ML Models
 + Governance: Guard Rails, Evaluation, Monitoring, rate-limits, usage tracking
-
 
 ## Lakehouse Architecture - Scope
 
@@ -68,26 +66,26 @@
 	- Personas: served by the Lakehouse
 	- Platform Domains: Applicable Domains/Use-Cases
 
-
 + Architectural Components
 	- Functionality: Data Lake + Data Warehouse
 	- Cross Team Colab
 	- Faster Data Delivery + AI Insight
 
 + Personas: DataEngs, DataScientists, MLEngs, DW Admins, Data Analysts/Business Partners
-
 + Platform Domains and Use Cases: Governance, Storage, DW, Orchestration/ETL, Advanced Analytics/ML/GenAI, BI
-
 
 ## Databricks Data Intelligence Complete Architecture
 
 + Layer 5/4/3 - Collaboration: Delta Sharing, Marketplace, Clean Rooms
+
 + Layer 5
 	- 5.1 Dev Tools: IDE Support, Notebooks, MLFlow
 	- 5.2 BI: AI/BI Genie, AI/BI Dashboard, Unified SQL Editor
 	- 5.3 Data/AI Apps: build/serve Databricks Apps
+
 + Layer 4 Automation: Lakeflow Jobs (Jobs, Declarative Pipelines), CI/CD, MLOps
-+ Layer 3 - Apache Spark + Photon 
+
++ Layer 3 - Apache Spark + Photon
 	- 3.1 Ingest & Transform: Batch/Streaming, Data Quality, Lakeflow Connect, Lakeflow Declarative ETL Pipelines & Autoloader
 	- 3.2 Advanced Analytics, ML & AI: ML Modeling, GenAI, Real-time Analytics, Model Serving
 	- 3.3 Data Warehouse: SQL, AI Funcs
@@ -95,7 +93,6 @@
 + Layer 2 - Data Intelligence Engine: Search/Discover, AI Assistant, Performance Optimization
 + Layer 1 - Data & AI Governance with UC: Access Control, Auditing, Lineage, Discovery, LH Federation, LH Monitoring
 + Layer 0 - Cloud Storage: Files (JSON, csv, images, ...) ➡️ Delta Lake ➡️ 3 Cloud Providers (AWS S3, Azure, GCP)
-
 
 ## Lakehouse 6 Guiding Principles
 
@@ -107,11 +104,11 @@
 	- Remove data silos, minimize data movement
 	- Avoid copies and outdated
 3. Self-Service: Democratize Value Creation
-	- Low Barrier to access data for everyone 
+	- Low Barrier to access data for everyone
 	- Lean Data Management
 	- AI/BI Genie helps here
 4. Org-wide Data Governance Strategy
-	- Should be actively managed 
+	- Should be actively managed
 	- Access control, auditing, lineage
 	- Use roles, columnar/row access controls
 	- Databricks covers: Data Quality, Data Catalog, Data Access
@@ -124,61 +121,68 @@
 	- Vertical Scaling: increase size of nodes
 	- Decouple data and compute resources
 
-
 ## Databricks <> Cloud Data Storages
 
-+ Sources:
++ Sources
 	- ETL: (Semi/Un)Structured Data
 	- Federation (DWH, RDBMS, SaaS, Hive MS)
 	- Sharing (Market Places / Data Shares)
-+ Ingest:
+
++ Ingest
 	- Batch & Streaming: Auto Loader, Lakeflow Connect, Kafka
 	- Ingest Tool, Event Streaming
-+ Transform:
+
++ Transform
 	- Lakeflow Declarative Pipelines
 	- Spark
+
 + Query / Process
 + Serve
 + Analyse
 + Integrate
 + Storage
 
-
 ## Well Architected Lakehouse Frameworks
 
-+ Operational Excellence:
++ Operational Excellence
 	- Optimize Processes
 	- Automation
 	- Manage Capacity: limits, access limits
 	- Monitoring: logging, alerting
-+ Security, Compliance, Privacy:
+
++ Security, Compliance, Privacy
 	- Identity & Priveleges
 	- Data Security
 	- Network Security: Firewall
 	- Compliance and Privacy
 	- Secure Monitoring: Security scanning
-+ Reliability:
+
++ Reliability
 	- Design for Failure: anticipate outages, design for resilience
 	- Manage Data Quality: actively check, maintain trustworthiness of data
 	- AutoScaling: can easily horizontal/vertical scaling, optimize cost
 	- Recovery Procedures: Disaster recovery system
-	- Automation: Simulate failures, recreate past failures 
+	- Automation: Simulate failures, recreate past failures
 	- Monitoring: Alerting, monitoring, logging
+
 + Performance Efficiency
 	- Serverless Services: high availability, minimum config
 	- Design for Performance: optimal performance
 	- Performance Testing: continuous
 	- Performance Monitoring: find bottlenecks/errors
+
 + Cost Optimization
 	- Optimal Resources
 	- Dynamic Allocation
 	- Cost Monitoring
 	- Workload Optimization
+
 + Data & AI Governance
 	- Unify Data & AI Management
 	- Unify Data & AI Security
 	- Data Quality Standards: Completeness, Validity
-+ Interoperability & Usability:
+
++ Interoperability & Usability
 	- Integration Standards
 	- Open Formats & Interfaces
 	- Simplify building use cases
@@ -194,28 +198,30 @@
 	- Vendor interoperability, optionality, leverage
 	- Own and store your data once
 	- Future-proof, scalable, interoperability
+
 + Prioritize Use Cases
+
 + Democratize
 	- Scalable
 	- Offers as a product
-
 
 ## The Medallion Structure
 
 + Bronze: Raw Ingest
 	- No transformation, append Only
 	- Single Source of Truth
+
 + Silver: Cleansed/Conformed
-	- Typed/deduplicated/joined 
+	- Typed/deduplicated/joined
 	- Null Handled
 	- 3NF / ERP
 	- Raw/Data Vault
+
 + Gold: Consumption ready
 	- Business Vaults + Marts (subject-focused subset of a data warehouse)
 	- Aggregated, enriched
 	- Materialized view, feature tables
 	- Star Schema (Kimball): Fact/Dimension Tables
-
 
 ## Delta Lake & Unity Catalog Features
 
@@ -230,7 +236,6 @@
 	- ER diagram rendering from PK/FK constraints
 	- Lineage across Bronze -> Silver -> Gold
 	- Unified governance for tables, views, features, models
-
 
 ## Data Warehouse Overview
 
@@ -257,7 +262,6 @@
 	3. Time-Variant: History preserved, in Delta: time-travel
 	4. Non-Volatile: Append + version, no in-place updates, in Delta: schema evolution
 
-
 ## The Three Classical Data Model Approaches
 
 + Often used in combination, not mutually exclusive
@@ -282,9 +286,8 @@
 
 + How to Pick?
 	- Heavy Audit? Yes: `Data Vault 2.0`
-	- Many Volatile Source Systems? Yes: `Data Vault 2.0` 
-	- BI First Stable Sources? Yes: `Kimball`, No: `Blend (Silver 3NF + Gold Star)` 
-
+	- Many Volatile Source Systems? Yes: `Data Vault 2.0`
+	- BI First Stable Sources? Yes: `Kimball`, No: `Blend (Silver 3NF + Gold Star)`
 
 ## Data Modeling Tiers: CDM, LDM, PDM
 
@@ -301,7 +304,6 @@
 	- Implementation View
 	- Maps the logical model to Delta tables with `CREATE TABLE DDL`, `PK/FK constraints`, partitioning, identity cols
 
-
 ## Inmon - Corporate Information Factory (CIF)
 
 + Operational Sources --->  ODS (Operational Data Sources, near real-time)
@@ -312,20 +314,23 @@
 + UNF: Unnormalised
 	- Repeating Groups
 	- Multi-valued Attributes (e.g Json Dict)
-	- Redundant Rows 
+	- Redundant Rows
+
 + 1NF: Atomic Values
 	- 1 value per cell
 	- No repeating groups
 	- Each row unique
+
 + 2NF: No partial deps
 	- Split composite tables
+
 + 3NF: No transitive deps
 	- Non-keys depend only on PK
 
 + Deletion vectors: reduce the performance impact of normalization
 
 + ERM: The Language of the Warehouse
-	- Entity: Table, must have NON-NULL PK, 
+	- Entity: Table, must have NON-NULL PK,
 	- Attribute: Column, `NOT NULL` and `CHECK` enforced in write-time
 	- Relationship: FK with Cardinality (1:1, 1:N, M:N), `NOT ENFORCED RELY` vs. `MERGE INTO` (we check referential integrity)
 
@@ -336,21 +341,20 @@
 	- Enforcement is the pipeline's job, typically `MERGE INTO` with dedup.
 	- `RELY` clause yields wrong results if data inconsistency
 
-+ Use Inmon when:
++ Use Inmon when
 	- Large enterprise, many sources: A 3NF silver is Cheaper
 	- Stability > mart agility
 	- Strong governance + audit: Clean Lineage
 
-+ DON'T Use Inmon when:
++ DON'T Use Inmon when
 	- Small team, fast delivery
 	- BI-only use cases
 	- Volatile Sources: Frequent schema changes disrupt 3NF
 
-+ Databricks uses:
++ Databricks uses
 	- Common Mix: 3NF-Silver + Kimbell-Gold
 	- Common for Silver: 3NF or Data Vault
 	- Data Vault: Separates business keys (Hubs), relationships (Links), and descriptive attributes (Satellites)
-
 
 ## Kimball's Dimensional Modeling
 
@@ -371,15 +375,15 @@
 + 4 Fact Table Types
 	1. Factless: An event occurrence record, no numeric measure
 	2. Transactional: Event per row, most common, append-only, immutable
-	3. Periodic: Period per Row, event(s) in a period 
+	3. Periodic: Period per Row, event(s) in a period
 	4. Accumulating: Process per Row, `UPDATE`s Columns, Only updated type, dedup is needed
 
-+ Surrogate Keys:
++ Surrogate Keys
 	- On Delta Table: `GENERATED ALWAYS AS IDENTITY` for auto-surrogate-gen on `INSERT`
 	- System-generate INT/identity column
 	- Identifies a version of a dimension row
 	- Changes with every difference in attributes
-	- `BIGINT` join performance > `STR` or `composite key` 
+	- `BIGINT` join performance > `STR` or `composite key`
 	- Example: `dim_customer_key BIGINT GENERATED ALWAYS AS IDENTITY,`
 
 + SCD (Slowly Changing Dimensions)
@@ -395,7 +399,7 @@
 	3. UPDATE OLD row: close it, `is_current` = `False`, `end_date = XYZ`
 	4. INSERT NEW row:  Surrogate Key (`is_current` = `True`)
 
-+ MERGE INTO Clause Reference:
++ MERGE INTO Clause Reference
 	- `WHEN MATCHED` UPDATE/DELETE old version
 	- `WHEN NOT MATCHED` INSERT new version
 	- `WHEN NOT MATCHED BY SOURCE`: UPDATE/DELETE, expire target dimension when source disappears
@@ -419,11 +423,9 @@
 	- Z-ORDER: colocate row with similar values. Run `OPTIMIZE` after bulk loads or on a schedule
 	- Liquid Clustering: Cluster keys at table creation, better than Z-order, recommended for most common filter keys
 
-
 ## Data Vault 2.0 - Hubs, Links, Satellites
 
 + In Short: Auditable, Scalable, Hash-Keyed Warehouse Modeling
-
 + Separates Structures (business keys & relationships) from Context (descriptive attributes)
 
 + Main Features
@@ -467,7 +469,7 @@
 	- `hash_key`: business-key(s) only, CANNOT change, used in hubs (PK), links (composite PK), Satellites (FK)
 	- `hash_diff`: Descriptive attributes only, CAN change, used in Satellites only
 
-+ Using Hashes:
++ Using Hashes
 	- Multi Column Hash: `hash(val1||val2||val3)`, `||` is needed for collisions
 	- For Null: `COALESCE(col, 'NULL_SENTINEL')`
 
@@ -480,20 +482,20 @@
 	- Business Vault (Silver): Point-in-Time (PIT) tables, bridge tables, computed Satellites for derived metrics
 	- Information Marts (Gold): BI-ready data, common to use Star schemas (Dim=Hub+Satellites, Fact=Link+Satellites) or flat UNF views
 
-+ Choose Data Vault when:
-	+ Regulated; finance, health, gov
-	+ Many Volatile Sources
-	+ Parallel teams per domain
-	+ "What did we know, when?" queries: Satellite History + Delta Lake Time Travel
++ Choose Data Vault when
+	- Regulated; finance, health, gov
+	- Many Volatile Sources
+	- Parallel teams per domain
+	- "What did we know, when?" queries: Satellite History + Delta Lake Time Travel
 
-+ DON'T Choose Data Vault when:
-	+ Small team, single source
-	+ BI-only with no audit need
-	+ No need for history
++ DON'T Choose Data Vault when
+	- Small team, single source
+	- BI-only with no audit need
+	- No need for history
 
 ## Modern Gold-Layer Pillar #1 - Feature Stores (ML)
 
-+ Training/Serving Skew Problem (Without ML Feature Store):
++ Training/Serving Skew Problem (Without ML Feature Store)
 	- When same features are not available in training and inference
 	- Feature logic re-implemented in notebooks, training jobs, and serving endpoints
 	- Subtle drift between training and serving
@@ -504,19 +506,19 @@
 	- One definition feeds training, batch, and real-time
 	- Training = serving by construction
 	- Unity Catalog: Features governed as first-class assets
-	- Discoverable and usable across teams 
+	- Discoverable and usable across teams
 
 + Databricks Implementation
 	- Use `FeatureEngineeringClient.create_table()` w/ `timestamp_keys` or `register_table()`
 	- `log_model()` so it records the feature lookups as model metadata (fresh keys)
 
-+ Use Feature Store When:
++ Use Feature Store When
 	- Multiple models reuse the same derived data
 	- Real-time inference at low latency
 	- Training/serving parity must be auditable
 	- Cross-team feature discovery is a priority
-	
-+ DON'T Use Feature Store When (Gold Table is enough):
+
++ DON'T Use Feature Store When (Gold Table is enough)
 	- Single Daily Batch Model
 	- No real-time serving requirement
 	- No cross-team use
@@ -528,7 +530,7 @@
 + Single Source of Truth: Let Dashboards, Notebooks, Genie Space use the same definition
 + Can be versioned (via UC)
 
-+ Metric View YAML Definition:
++ Metric View YAML Definition
 	- Source: Gold table, a lineage pointer
 	- Filters: Optional but not overridable row filter
 	- Dimensions: Valid slices incl. derived expressions
@@ -540,13 +542,13 @@
 	- Additive Measures: can be summed across any dimension without limitations
 	- Descriptive Measures
 
-+ Use Metric View when:
++ Use Metric View when
 	- Multiple dashboards report the same KPI
 	- Business users query metrics via Genie
 	- Metric definitions need to be versioned and governed
 	- Finance or compliance requires consistent metric calculation
 
-+ DON'T Use Metric View when (Gold View or Table suffice):
++ DON'T Use Metric View when (Gold View or Table suffice)
 	- Ad-hoc analysis, not a recurring KPI
 	- 1 dashboard, 1 author
 	- Metric definition is not shared across teams
@@ -572,28 +574,26 @@
 	- `PARTITION (col = value)` + `AS alias`
 	- `ADD SCHEMA schema_name`: share the existing/future `catalog.schema.*`
 
-+ Databricks-to-Databricks Sharing: 
++ Databricks-to-Databricks Sharing
 	- Mounting: Recipient mounts the share as read-only
 	- Recipient uses their metadata ID in the format `cloud:region:uuid`
 	- No Credential Files needed
 
-+ Use Delta Sharing when:
++ Use Delta Sharing when
 	- External partners need access to curated data
 	- Internal teams across different metastores need shared tables
 	- Regulatory reporting requires controlled, auditable access
 	- Data products need to be published for broad consumption
 
-+ DON'T Use Delta Sharing when:
-	- All consumers are in the same Unity Catalog metastore 
++ DON'T Use Delta Sharing when
+	- All consumers are in the same Unity Catalog metastore
 	- Standard grants and views provide sufficient access control
 	- No cross-organization sharing requirement
 	- Standard `GRANT` is enough
 
-
 ## Combining Data Modeling Approaches
 
 + Blend Inmon, Kimball and Data Vault on the Lakehouse
-
 + Blending Is Normal
 
 + Industry Starting Points
@@ -601,7 +601,7 @@
 	- Financial services and insurance: Data Vault Silver
 	- Healthcare: Data Vault Satellites
 
-+ Popular Choice Flow:
++ Popular Choice Flow
 	- Source Systems
 	- BRONZE: Raw Capture
 	- SILVER = `Inmon (3NF)`, GOLD = `Star Schemas (Kimbell)` OR
@@ -621,7 +621,6 @@
 	- Are some domains simple while others are complex?: Pattern 3
 	- Do different teams need different levels of history and auditability?: Pattern 3
 	- Is fast BI delivery more important than integration?: No Silver, directly Kimbell Gold
-
 
 ## Defining Data Products
 
@@ -645,10 +644,10 @@
 	- Domain teams own their data
 	- Domain-specific models with conformed interfaces
 	- Pipelines = part of the product
-	- Governance from day one 
+	- Governance from day one
 	- Start Small: 1 domain -> 1 table -> add ownership, SLA, docs, lineage -> Expand
 
-+ DATSIS (What Makes a Dataset a Data Product) 
++ DATSIS (What Makes a Dataset a Data Product)
 	- Discoverable: Listed and searchable
 	- Addressable: Stable URN or path
 	- Trustworthy: SLAs, quality, lineage
@@ -664,8 +663,7 @@
 	- Interoperability: PK/FK constraints and Delta Sharing
 	- Secure: UC's unified grant model with row filters and column masks enforced across all compute engines
 
-+ 3 Catalog Explorer Monitor Types:
++ 3 Catalog Explorer Monitor Types
 	- Snapshot (no timestamp column required)
 	- Time series (tracks distributions per time window)
 	- Inference (tracks ML model performance).
-

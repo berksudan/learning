@@ -445,7 +445,6 @@ WHEN NOT MATCHED THEN
 	- UC Entry
 
 + DLT (Delta Live Tables) to SDP: DLT is deprecated
-
 + The Declarative Pipeline Graph: automatic pipeline dependency parsing
 
 ## SDP (Spark Declarative Pipelines) - Data Quality with Expectations
@@ -670,17 +669,16 @@ WHEN NOT MATCHED THEN
 	- `@pytest.fixture`: reusable test setup, injected by naming it as a test arg
 	- Scope: `function` (default) / `module` / `session`, e.g. one shared `SparkSession`
 
-
 ## Integration Tests with SDP and Jobs
 
-+ SDP Expectations:
++ SDP Expectations
 	- Checks pipeline's results and tables
 	- Shared SDP Code as Notebooks: defines transform logic using custom funcs.
 	- For all ENVs: DEV, STG, PRD
 	- Validation Examples: #Rows, #DistinctValuesInNewCols
 	- Expactions in ENVs: Test tables leverage in DEV/STG.
 
-+ DBX LF Jobs with 1+ Tasks:
++ DBX LF Jobs with 1+ Tasks
 	1. Unit Tests: Before other tasks
 	2. Pipeline Task: Run SDP without expectations
 	3. Integration Tests: Created Tables/Rows, Dupes, column ranges, distinct values etc.

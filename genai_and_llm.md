@@ -1,6 +1,6 @@
-## Generative AI and Agents in Databricks - Basics 
+## Generative AI and Agents in Databricks - Basics
 
-+ Trace Based Debugging:
++ Trace Based Debugging
 	- Span: single unit of step/work in a GenAI Flow
 	- Contains: tools-called, prompts, inputs, outputs, Vector-search
 	- Databricks supports `OpenTelemetry`
@@ -27,7 +27,7 @@
 	- Practice of optimizing input (prompt) to optimize the LLM output
 	- Tactical Discipline on the instruction layer
 
-+ PromptEng Techniques:
++ PromptEng Techniques
 	-	Few-Shot Prompting (providing examples)
 	- Persona Adoption (assigning a role)
 
@@ -62,7 +62,7 @@
 
 + Context Environment: Entire Input Window
 	- System Instructions
-	- Conversation History 
+	- Conversation History
 	- Retrieved Data
 	- User Constraints
 
@@ -89,19 +89,17 @@
 	- Just-in-Time Retrieval: retrieve only needed
 	- Reranking: 50 chunks -> 5 Chunks -> CW
 
-
 ## Data Storage, Processing, Cleaning Architecture
 
 + UC Volumes (Bronze): Governance Layer for non-tabular/raw data, lineage
-
 + Delta Lake (Silver/Gold): stores parsed/chunk data, ACID, versioning
 
-+ Data Ingestion and Processing Workflow:
++ Data Ingestion and Processing Workflow
 	- Data Ingestion and Pre-Processing: read from UC volume, parse via AI func
 	- Data Storage: Store parsed data in Delta Lake with Governance
 	- Chunking: Split data for embedding generation
 
-+ Doc Processing Challenges:
++ Doc Processing Challenges
 	- Hierarchical Info: headers/subheaders
 	- Order Preservation: multi-col text
 	- Contextual Integrity: images/charts/photos must be associated with text descriptions
@@ -117,7 +115,7 @@
 	- Bounding Boxes: returns coordinates (bboxes) for text elements
 	- Image Path Param: `imageOutputPath`
 
-+ Parsed Data contains:
++ Parsed Data contains
 	- Metadata
 	- Parsed Content
 	- Pages
@@ -128,10 +126,9 @@
 	- Noise Reduction: remove artifacts, headers, footers
 	- Metadata Injection: document titles, author names, creation dates
 
-
 ## Chunking Strategies
 
-+ Fixed-Size Chunking (Legacy/Baseline):
++ Fixed-Size Chunking (Legacy/Baseline)
 	- Hard character/token limit
 	- Cut in Half Problem
 
@@ -159,7 +156,6 @@
 	- Conversion from JSON to MD: `ai_query` (LLM, expensive), manual (cheap)
 	- Chunking (Splitting): LangChain or Custom Functions (UDFs)
 
-
 ## Embedding and Vector Search
 
 + Core Concepts of Embeddings
@@ -167,7 +163,7 @@
 	- Multimodal Context: support for image, video, audio
 	- Embedding Models
 
-+ Embedding Models 
++ Embedding Models
 	- ML/DL Models
 	- Converts: High-dimensional unstructured data -> Low-dimensional numerical vectors
 	- Similar semantics = Close vectors
@@ -187,21 +183,21 @@
 + Vector Search Methods
 	- Similarity Search: Semantic correlation
 	- Full-Text Search: Traditional keyword-based, excels at specific terms (part no, codes)
-	- Hybrid Search: Mix of Similary + Full-Text Search, usually performs best 
+	- Hybrid Search: Mix of Similary + Full-Text Search, usually performs best
 
 + Distance and Similarity Metrics
 	- L1 (Manhattan Distance): abs difference in all dimensions, useful for clustering and anomaly detection
 	- L2 (Euclidean Distance): each axis is equally important, useful for grid-based or sparse data
 	- Cosine Similarity: score ~ similarity, robust to magnitude/scale, most popular
 
-+ Search Strategy - KNN (K-Nearest Neighbors):
++ Search Strategy - KNN (K-Nearest Neighbors)
 	- Expensive
 	- 1 Query <> All Data Points
 
-+ Approximate Nearest Neighbors (ANN):
++ Approximate Nearest Neighbors (ANN)
 	- Cheaper
 	- 1 Query <> Subset of Vectors
-	- Advanced Indexing: HNSW (Hierarchical Navigable Small Worlds) or FAISS (Facebook AI Similarity Search) 
+	- Advanced Indexing: HNSW (Hierarchical Navigable Small Worlds) or FAISS (Facebook AI Similarity Search)
 
 + Reranking Process
 	- Post-retrieval refining
@@ -214,32 +210,27 @@
 ## Mosaic AI Vector Search Engine (Indexer + Vector DB)
 
 + Native to Databricks Lakehouse
-
 + Enables Real-time similarity search through a REST API and Python client
-
 + Delta Auto Sync and Indexing: Source DeltaTable <> Vector Search Engine
-
 + Governance and Access Control: Unity Catalog at the index level
-
 + Narrow Down Search: Use Filters and Metadata.
 
 + Management and Ingestion Modes
-	1. Managed Embeddings (Delta Sync): you only provide DeltaTable with raw text, uses _Mosaic AI Model Serving_ endpoint 
+	1. Managed Embeddings (Delta Sync): you only provide DeltaTable with raw text, uses _Mosaic AI Model Serving_ endpoint
 	2. Self-Managed Embeddings (Delta Sync): You compute embeddings and put in a DeltaTable, rest is Auto-sync
 	3. Direct Access CRUD API: Ideal for real-time apps, used through REST API / Python SDK
 
 + Vector Search Requires CDF (Change Data Feed) enabled
 
-
 ## MLflow and Agent Development
 
 + MLflow Components (TTMM)
-	- Tracking: API/UI for logging params, output files, metrics, code versions, tracking system prompts, retriever configs 
+	- Tracking: API/UI for logging params, output files, metrics, code versions, tracking system prompts, retriever configs
 	- Tracing: Hierarchical execution flow of an agent
 	- Models: Standard model packaging format
 	- Model Registry: Centralized repo for lifecycle management, versioning, stage transitions
 
-+ Experiments and Runs save:
++ Experiments and Runs save
 	- System Prompts: for agent persona
 	- Model Configs: params like `temperature`, `max_tokens`
 	- Retriever Settings: `chunks to retrieve (k)`, `filtering threshold`
@@ -250,10 +241,9 @@
 	- Native GenAI Flavors: `mlflow.langchain` or `mlflow.openai`, they handle serialization of retrieval chain and components
 	- PyFunc Flavor: Wrap arbitrary code as model, good for custom re-ranking/dynamic-filtering, contains `.predict()`
 
-
 ## Observability, Tracing, and Governance
 
-+ MLFlow Tracing: record every input, output, tool-calls, execution-graph 
++ MLFlow Tracing: record every input, output, tool-calls, execution-graph
 + Auto-Logging: e.g. `mlflow.langchain.autolog()`
 + Manual Instrumentation with `@mlflow.trace` decorator
 
@@ -264,14 +254,13 @@
 
 + Governance with UC - UC Model Registery
 	- Access Control: Permissions for models/assets
-	- Lineage: used data tables for the agent 
+	- Lineage: used data tables for the agent
 
 + Governance with UC - Logging and Registering Agents
 	- **Define Model Signature**: in/out format of model, use `mlflow.models.ModelSignature`
 	- **Log the Model**: You can use `mlflow.{flavor, e.g langchain}.log_model`, better to add _Input Example_ to test
 	- **Register**: Log to an experiment and run `mlflow.register_model("runs:/<run_id>/model", "catalog.schema.retrieval_agent")`
-	- **Retrieval Tool in UC**: Should also be _governed_ 
-
+	- **Retrieval Tool in UC**: Should also be _governed_
 
 ## Knowledge Assistant with Agent Bricks
 
@@ -286,14 +275,14 @@
 	- 2. Collects: Feedback via Review App (👍, 👎, corrected answers) & LLM-as-Judge
 	- 3. Synthesizes: Optimize prompts/configs
 
-+ Bricks:
++ Bricks
 	- Pre-configured architectures
 	- Specialized for a specific mode and data processing
 
 + Agent Bricks Use Cases
 	- Knowledge Assistant: RAG, parsing, chunking, embedding, citation generation
 	- Information Extraction: unstructured (img, pdf, txt) to structured (delta table)
-	- Multi-Agent Supervisor: Query Router to Subagents 
+	- Multi-Agent Supervisor: Query Router to Subagents
 	- Custom LLM: Creates a specialized LLM endpoint tailored to specific enterprise guidelines /tasks.
 
 + Code-First (Mosaic AI Agent Framework)
@@ -315,10 +304,9 @@
 	3. Reasoning Engine and Model Serving: query inference, citations
 	4. Quality Loop (Review App & Evaluation): Review App, LLM Judges, Optimizations
 
-
 ## Issues in GenAI Applications
 
-+ Select LLMs with:
++ Select LLMs with
 	- High-quality/relavant training data
 	- Relavant published benchmark (for your task)
 
@@ -327,7 +315,7 @@
 	- Monitor Changes
 
 + Model Input/Output
-	- Collect/review input/outputs 
+	- Collect/review input/outputs
 	- Monitor changes in stats
 	- Monitor user feedback
 	- Use LLM-as-judge metrics to assess quality
@@ -354,7 +342,7 @@
 
 ## AI System Security
 
-+ Top Concerns in AI:
++ Top Concerns in AI
 	1. Security
 	2. Cost
 	3. Reliability
@@ -411,7 +399,7 @@
 
 + Base Eval Technique - Loss
 	- Measures: next token prediction accuracy
-	- Only understands grammar 
+	- Only understands grammar
 
 + Base Eval Technique - Perplexity
 	- Perplexity: how well a model predicts a sample
@@ -466,8 +454,8 @@
 	- Not scalable
 
 + MLFlow LLM Eval
-	- Batch Comparisons: Compare Foundational Models with fine-tuned models 
+	- Batch Comparisons: Compare Foundational Models with fine-tuned models
 	- Rapid/Scalable Experimentation: eval unstructured outputs rapidly
 	- Cost-Effective: save time on human-eval
-	- Supports LLM-as-Judge: `evaluate` module, supports custom metrics 
+	- Supports LLM-as-Judge: `evaluate` module, supports custom metrics
 	- `mlflow.evaluate(callable, eval_data, targets="col", model_type="text-summarization")`
