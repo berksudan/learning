@@ -670,3 +670,9 @@ WHEN NOT MATCHED THEN
 + Easy Unit Testing with `Pyspark.testing.utils` Funcs
 	- `assertDataFrameEqual (actual, expected[, ...])`
 	- `assertSchemaEqual (actual, expected)`
+
++ Unit Testing Framework - `pytest`
+	- Simple Syntax: `test_*`
+	- Verbose Asserts: Messages on failure
+	- Auto Discovery: Find/Run all tests with simple config
+	- Rich Ecosystem: Extend with coverage, parallel tests, etc.
