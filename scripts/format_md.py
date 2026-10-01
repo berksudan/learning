@@ -56,7 +56,7 @@ def _format_text(text: str) -> str:
             continue
         if is_code or not line.startswith("\t"):
             is_item = not is_code and line.startswith("+ ")
-            needs_blank = has_pending_gap or (tight_item_index is None if is_item else not is_code and line.startswith("#"))
+            needs_blank = tight_item_index is None if is_item else has_pending_gap or (not is_code and line.startswith("#"))
             if formatted_lines and needs_blank:
                 formatted_lines.append("")
             tight_item_index = len(formatted_lines) if is_item else None
