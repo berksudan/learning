@@ -4,7 +4,7 @@
 set -eu
 export GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=15'
 export GIT_TERMINAL_PROMPT=0
-cd -- "$(dirname -- "$0")"
+cd -- "$(dirname -- "$0")/.."
 
 for marker in rebase-merge rebase-apply MERGE_HEAD; do
 	if [ -e "$(git rev-parse --git-path "$marker")" ]; then

@@ -9,7 +9,7 @@ Rules (fenced code blocks are left untouched):
 - One blank line before every `+` item and `#` heading, no blank lines inside a `+` block, never two blank lines in a row.
 - Exactly one newline at the end of the file.
 
-Usage: ./format_md.py [FILE ...]   (defaults to every *.md in this folder)
+Usage: scripts/format_md.py [FILE ...]   (defaults to every *.md in the repo root)
 """
 
 import math
@@ -81,7 +81,7 @@ def format_text(text: str) -> str:
 
 
 def main() -> None:
-    paths = [Path(arg) for arg in sys.argv[1:]] or sorted(Path(__file__).parent.glob("*.md"))
+    paths = [Path(arg) for arg in sys.argv[1:]] or sorted(Path(__file__).parent.parent.glob("*.md"))
     for path in paths:
         original = path.read_text()
         formatted = format_text(original)
