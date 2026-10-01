@@ -2,7 +2,7 @@
 
 ## Intro to Data Engineering in Databricks (dbx)
 
-+ 3 Components of Databricks Lakeflow:
++ 3 Components of Databricks Lakeflow
 	- Lakeflow Connect: Ingestion connectors for apps, DBs, cloud storage, message busses, local files
 	- Spark Declarative Pipelines: Framework for batch/streaming data pipelines via SQL/Python
 	- Lakeflow Jobs: Workflow automation to orchestrate data processing, coordination of 1+ tasks in complex workflows
@@ -45,7 +45,7 @@
 
 ## Data Ingestion from Cloud Storage
 
-+ Cloud Storage to Ingestion:
++ Cloud Storage to Ingestion
 	- From Raw Files: CSV, JSON, Parquet, etc.
 	- To Delta Tables
 	- Performed by: LF Connect Standard Connectors
@@ -93,7 +93,7 @@
 	- Lineage
 	- Auditing
 
-+ `_metadata` Column:
++ `_metadata` Column
 	- Hidden by default
 	- Available for all input file
 	- Its fields need to be selected in read query
@@ -112,7 +112,7 @@
 
 ## Ingesting Semi-Structured Data: JSON
 
-+ JSON Format:
++ JSON Format
 	- Object: `{}`
 	- Key: type=string, always contains value, `"key":"value"`
 	- Value: str, num, bool, array, obj, null
@@ -138,7 +138,7 @@
 
 + BASE64 Values: use `CAST( unbase64(base64_col) AS STRING )`
 
-+ Struct Array Functions:
++ Struct Array Functions
 	- Explode: `explode( value.items ) AS item_in_array`
 	- Array Length: `array_size( value.items ) AS num_elements`
 
@@ -223,26 +223,26 @@ WHEN NOT MATCHED THEN
 
 ## LF Jobs Core Components
 
-+ LF Job:
++ LF Job
 	- Scheduling
 	- Coordinating
 	- Run operations: Data processing, ETL, analytics, ML
 	- Contains: 1+ tasks
 	- Supported Langs: SQL, Python, Scala, Java (via JAR), R
 
-+ LF Task:
++ LF Task
 	- Single unit of work in a Job
 	- Examples: Notebook, script, query, dbt, spark, py-wheels etc.
 	- Each task's compute source can differ
 
-+ LF Task Common Options:
++ LF Task Common Options
 	- Path
 	- Libs
 	- Params
 	- Notification
 	- Retry Policies
 
-+ LF Task Type Options:
++ LF Task Type Options
 	- Notebook: Source Path, Compute Options (cluster config), etc.
 	- SQL: Task Name, SQL query, SQL warehouse
 
@@ -276,7 +276,6 @@ WHEN NOT MATCHED THEN
 	- Funnel: `{A,B,C}` -> `{D}`, data collection/consolidation from 1+ sources
 	- Fan-out / Star: `{A}` -> `{B,C,D}`, single data source, data ingestion/distribution
 
-
 ## LF Job Creation and Scheduling Details - Params, Notification, Retry
 
 + LF Task Config Options Major Categories
@@ -284,13 +283,13 @@ WHEN NOT MATCHED THEN
 	2. Retries: Task/job level, first line of defense, different retry strategies
 	3. Notification Alerts: Task/job level, granular target control
 
-+ Task Params:
++ Task Params
 	- JSON Arrays (Key-Value Pairs)
 	- Conditional Exec Support: Data condition branching, env settings, business rules
 	- Looping Support: iteration counts, for-each loop arrays, complex processing
 	- Context Passing: Data flow for downstream tasks
 
-+ Job Params:
++ Job Params
 	- Applied to all tasks automatically
 	- Overrides same-keyed task params
 	- Can be overriden at runtime on job run trigger
@@ -300,7 +299,7 @@ WHEN NOT MATCHED THEN
 + Task Values - Dynamically Set/Get Task Params
 	- Computed at Runtime
 	- Dynamic Communications between tasks
-	- Good For: share computed/dynamic results, conditional logic, processing stats for monitoring 
+	- Good For: share computed/dynamic results, conditional logic, processing stats for monitoring
 	- Set TaskValues: `dbutils.jobs.taskValues.set(key="a_key", value="val")`
 	- Get TaskValues from another upstream task: `dbutils.jobs.taskValues.get(taskKey="task-name",key="a_key")`
 
@@ -308,15 +307,15 @@ WHEN NOT MATCHED THEN
 	- Reference values at runtime
 	- Notation: `{{ }}`
 
-+ Dynamic Value References - Job Context References:
++ Dynamic Value References - Job Context References
 	- `{{job.start_time.day}}`: Get exec time
 	- `{{job.run_id}}`, `{{job.parameters.environment}}`: Get job-level params
 
-+ Dynamic Value References - Task Context References:
++ Dynamic Value References - Task Context References
 	- `{{task.name}}`
 	- `{{task.retry_count}}`
 
-+ Dynamic Value References - Inter-Task Communication:
++ Dynamic Value References - Inter-Task Communication
 	- `{{tasks.data-validation.values.record_count}}`: Get computed results from upstream tasks
 	- `{{tasks.file-processor.values.output_path}}`: Get dynamic filepaths from other tasks
 
@@ -343,7 +342,6 @@ WHEN NOT MATCHED THEN
 	- Dependency Conditions: all-succeeded, all-failed, 0-failed, 1+-succeeded, etc.
 	- Configure via UI: Configuration Settings
 
-
 + If/Else Tasks
 	- Boolean conditional logic
 	- Uses boolean operators: `==`, `!=`, `>`, `>=`, `<`, `<=`
@@ -356,9 +354,8 @@ WHEN NOT MATCHED THEN
 	- Concurrency: Configurable, parallel iteration run with performance optimization
 	- Dependency Management: Downstream tasks depend on the entire for-each container
 	- Resource Management: The container allocates resources across iterations, optimizing cluster utilization and preventing resource conflicts.
-	- For-each Task Type: Top-level container, defining input-array, concurrency, resource-alloc, 
+	- For-each Task Type: Top-level container, defining input-array, concurrency, resource-alloc,
 	- Nested Task Type: Takes array-item as `{{ input }}` and executed
-
 
 ## Handling Task Failures and Monitoring Jobs Performance
 
@@ -375,7 +372,7 @@ WHEN NOT MATCHED THEN
 	- Faster Resolution: Fails-fast, improves SLA adherence and responsiveness
 
 + After Repair Run
-	- Audit Trail: num-attempts, fixer person, time of fix,  
+	- Audit Trail: num-attempts, fixer person, time of fix,
 	- Success Validation: Clear indication of which tasks were recovered successfully, enabling confidence in the repair process
 	- Learning Opportunities: Diagnose, improve, prevent
 
@@ -384,12 +381,11 @@ WHEN NOT MATCHED THEN
 	- Timeline Tables: Timeline analysis, uses `period_{start,end}_time` for long running job's hourly duration
 
 + Dashboards
-  - Before use, the dashboard must be published and connected to a SQL warehouse
-
+	- Before use, the dashboard must be published and connected to a SQL warehouse
 
 ## Spark Declarative Pipelines Overview
 
-+ Problem of Building Reliable Data Pipelines:
++ Problem of Building Reliable Data Pipelines
 	- Labor-Intensive Development
 	- Operational Complexity
 	- Siloed Batch & Streaming
@@ -409,7 +405,6 @@ WHEN NOT MATCHED THEN
 	- Pipeline Parameters in SQL: use named parameter syntax, e.g. `FROM STREAM read_files(:input_path, format => 'json')`
 	- Legacy Configuration Values: use `${key}` substitution in SQL, e.g. `FROM STREAM read_files('${input_path}', format => 'json')`
 
-		
 ## SDP (Spark Declarative Pipelines) - Dataset Types
 
 + ST (Streaming Tables)
@@ -434,25 +429,24 @@ WHEN NOT MATCHED THEN
 	- Unlike streaming tables, materialized views automatically track changes and manage their own refreshes based on the upstream source
 	- No `STREAM` Keyword: in `FROM` clause
 
-+ View Overview & Limitations:
++ View Overview & Limitations
 	- Virtual table/query with no physical data
 	- No `OR REFRESH` Clause in SQL
 	- UC Pipeline: Mandatory type
 	- No Streaming Queries: Can be in views
-	- Cannot be Streaming Source: For a Pipeline 
+	- Cannot be Streaming Source: For a Pipeline
 
 + Temporary View
 	- Pipeline-Scoped: No UC entry
 	- SQL-Based Intermediate Layer: `CREATE TEMPORARY VIEW`
 
-+ View:
++ View
 	- SQL: `CREATE VIEW`
 	- UC Entry
 
 + DLT (Delta Live Tables) to SDP: DLT is deprecated
 
 + The Declarative Pipeline Graph: automatic pipeline dependency parsing
-
 
 ## SDP (Spark Declarative Pipelines) - Data Quality with Expectations
 
@@ -482,7 +476,6 @@ WHEN NOT MATCHED THEN
 	- `(CONSTRAINT <CSTRT_STMT>, CONSTRAINT <CSTRT_STMT>)`
 	- `AS SELECT <SELECT_STMT>`
 	- `FROM STREAM another_tbl`
-
 
 ## SDP (Spark Declarative Pipelines) - Streaming Joins and Deploying Pipelines to Production
 
@@ -532,22 +525,21 @@ WHEN NOT MATCHED THEN
 	- `COMMENT "comment"`
 	- `TBLPROPERTIES ( "quality" = "bronze", "pipelines.reset.allowed" = false )`
 
-
 ## Spark Declarative Pipelines - CDC (Change Data Capture) Overview
 
 + CDC (Change Data Capture): track and capture changes in a data source
 
-+ SCD (Slowly Changing Dimension) Type 1:
++ SCD (Slowly Changing Dimension) Type 1
 	- Overwrite existing / Delete existing / Insert new
 	- No historical tracking
 
-+ SCD (Slowly Changing Dimension) Type 2:
++ SCD (Slowly Changing Dimension) Type 2
 	- Historical Tracking: Always keep old records
 	- On Update: Same Key, Old record's `end_date`=`FILLED` col filled, new record's `end_date`=`null`
 	- On Insert: Different Key, new record's `end_date`=`null`
 	- On Delete: Old record's `is_active`=`True`
 
-+ AUTO CDC INTO:
++ AUTO CDC INTO
 	- Good for streaming
 	- Replaces: Complex `MERGE INTO` batch logic in streaming logic
 	- Contains: `KEYS`, `APPLY AS DELETE WHEN`, `SEQUENCE BY`, `COLUMNS`, `STORED AS`
@@ -555,21 +547,20 @@ WHEN NOT MATCHED THEN
 	- Use SCD Type 2: `AUTO CDC INTO with STORED AS SCD TYPE 2`
 	- Full Example: `CREATE FLOW flw AS AUTO CDC INTO stream_dst_tbl FROM STREAM(stream_src_tbl)`
 
-
 ## Intro to PySpark & DevOps in Databricks
 
 + Software Engineering with Databricks
-	- Databricks Workspaces: Code, unit-tests, use notebooks/files (SQL, PY, Scala, etc.) 
+	- Databricks Workspaces: Code, unit-tests, use notebooks/files (SQL, PY, Scala, etc.)
 	- Databricks Git folders
 	- UC (Unity Catalog): Isolate envs in Workspace(s)
 	- Databricks Deployment Tools: Testing, CI/CD
 
-+ Benefits of Modularized Pyspark Code with Functions	
++ Benefits of Modularized Pyspark Code with Functions
 	- Easy Maintenance
 	- Reuse
 	- Testing
 
-+ DevOps in Databricks:
++ DevOps in Databricks
 	- Automate CI/CD: Continuously integrate/test/deploy
 	- Automate Prod-grade LF jobs
 	- Streamline processes
@@ -577,13 +568,13 @@ WHEN NOT MATCHED THEN
 	- Orchestration & Automation
 	- System Performance Monitoring
 
-+ DevOps Benefits:
++ DevOps Benefits
 	- ⬆️ Scalability
 	- ⬆️ Reliability
 	- ⬆️ Collaboration
 	- ⬆️ Deployment Speed
 
-+ DevOps Lifecycle:
++ DevOps Lifecycle
 	1. DEV - Plan: Project goals, requirements
 	2. DEV - Code: Source code, feature-developing
 	3. DEV - Build: Compile into executables with dependencies
@@ -593,7 +584,7 @@ WHEN NOT MATCHED THEN
 	7. OPS - Operate: Check performance, early issues, resources
 	8. OPS - Monitor: Track, gather feedback, continuously improve
 
-+ DataOps (DevOps + DataEng):
++ DataOps (DevOps + DataEng)
 	- Automate data-pipelines & data-flows
 	- Optimize data processing
 	- Centralize data discovery/mgmt/governance
@@ -602,31 +593,30 @@ WHEN NOT MATCHED THEN
 	- ⬇️ bottlenecks
 	- ⬆️ insights
 
-+ MLOps (DevOps + MLEng)	
++ MLOps (DevOps + MLEng)
 	- Streamline deployment / management of ML models
 	- Performance monitoring
 	- Manage Model Lifecycle
 	- Treat: model=data, model-code=software
 	- Quick iterations
 
-
 ## CI/CD and Environment Isolation in Databricks
 
-+ DataOps as CI/CD:
++ DataOps as CI/CD
 	- Business Requirements to Business Value
 	- CI (Continuous Integration): Plan, Develop, Build, ENV mgmt, Test
 	- CD (Continuous Deployment): Release, Deploy, Operate, Monitor
 
-+ CI/CD Process:
++ CI/CD Process
 	- Short Cycles: In development and delivery
 	- Automated Pipelines: Faster deployment and consistency
 
-+ CI/CD Overview:
++ CI/CD Overview
 	- Automated/Streamlined Development
 	- Automated Deployment
 	- Improve: code quality, speed, reliability
 
-+ CI/CD Adoption:
++ CI/CD Adoption
 	- Common practice in SW dev
 	- ⬆️ importance in DataEng & DataScience
 
@@ -641,28 +631,27 @@ WHEN NOT MATCHED THEN
 	2. Integration Tests: slower, interaction of components/systems, e.g. `notebooks` <> `SDP` <> `jobs`
 	3. System Tests: slow/expensive, entire app testing, e.g. `e2e data-pipeline in a job`
 
-+ Continuous Delivery: 
++ Continuous Delivery
 	- Automated Push to STAGE
 	- Seamlesss Updates
 	- Provides flexibility
 	- Manual: Deploy to PROD
 
-+ CD (Continuous Deployment):
++ CD (Continuous Deployment)
 	- Fully Automated Deploy: To STAGE and PROD
 
-+ Data Categories per ENV (DEV/STG/PRD):
++ Data Categories per ENV (DEV/STG/PRD)
 	- DEV Data: small, often static, often anonymized, often synthetic, best for rapid dev
 	- STG Data: similar to PRD data, might be anonymized, realistic ground for testing/validation
 	- PRD Data: real/live/operational data, continuous update, requires high security/privacy/compliance
 
-+ Isolation:
++ Isolation
 	- 1 ENV per Workspace: 1 UC+Storage
 	- N ENVs per Workspace: N UC+Storage, use UC Access Control
 
-
 ## Unit Tests for PySpark
 
-+ Unit Test Benefits:
++ Unit Test Benefits
 	- Isolate Problem with small data
 	- Early Bug Detection
 	- Eases Refactoring/Debugging
@@ -676,3 +665,7 @@ WHEN NOT MATCHED THEN
 	- Verbose Asserts: Messages on failure
 	- Auto Discovery: Find/Run all tests with simple config
 	- Rich Ecosystem: Extend with coverage, parallel tests, etc.
+
++ `pytest` Fixtures
+	- `@pytest.fixture`: reusable test setup, injected by naming it as a test arg
+	- Scope: `function` (default) / `module` / `session`, e.g. one shared `SparkSession`
