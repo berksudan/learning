@@ -714,3 +714,14 @@ WHEN NOT MATCHED THEN
 	- Common Operations: supported
 	- Visual Diff Comparison
 	- Designed for authoring and collaborative Lakeflow Jobs
+	- For GitHub: Create GitHub PAT, On DBX add it to Linked Accounts
+
++ Databricks Git Folders
+	- A Folder in Workspace
+	- Linked to remote Git repo
+	- UI Support: Clone, commit, push, pull, branch
+
++ Arbitrary Files Support in Repos:
+	- R/Python Libraries work as usual
+	- Environment Specification Portability: Build packages from the same repo
+	- Relative imports works
