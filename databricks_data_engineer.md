@@ -700,10 +700,17 @@ WHEN NOT MATCHED THEN
 	- AWS
 	- Azure DevOps
 
-+ Git Benefits: Collaboration, VC, branching/merging, distributed nature, open-source, widespread
++ Git Benefits: 
+	- Collaboration
+	- VC
+	- Branching / Merging
+	- Distributed nature
+	- Open-source
+	- Widespread
+	- Prevents Data Loss: Through cryptographic integrity checks	
 
 + DBX Git Integration:
-	- Git Client UI & API
+	- Git CLI & GUI Clients (SourceTree, GitKraken, VSCode Git Integration) & API
 	- Common Operations: supported
 	- Visual Diff Comparison
 	- Designed for authoring and collaborative Lakeflow Jobs
