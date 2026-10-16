@@ -682,3 +682,12 @@ WHEN NOT MATCHED THEN
 	1. Unit Tests: Before other tasks
 	2. Pipeline Task: Run SDP without expectations
 	3. Integration Tests: Created Tables/Rows, Dupes, column ranges, distinct values etc.
+	
+
+## Version Control with Git Overview
+
++ Organizational Challenges
+	- Development Silos: Isolates devevelopment and team operations
+	- Low SW Quality: Independent development causes duplicate code, bad standards, no code-reviewing
+	- Unstable Versioning: Difficult to track, revert, audit changes
+	- Risky Frequent Updates: 
