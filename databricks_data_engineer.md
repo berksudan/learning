@@ -693,7 +693,7 @@ WHEN NOT MATCHED THEN
 	- Risky Frequent Updates
 	- No Scaling Development: Branching / CI/CD Integrations become problematic
 
-+ Supported Git Hosts
++ Supported Git Providers
 	- GitHub
 	- GitLab
 	- Bitbucket
@@ -701,4 +701,9 @@ WHEN NOT MATCHED THEN
 	- Azure DevOps
 
 + Git Benefits: Collaboration, VC, branching/merging, distributed nature, open-source, widespread
-	
+
++ DBX Git Integration:
+	- Git Client UI & API
+	- Common Operations: supported
+	- Visual Diff Comparison
+	- Designed for authoring and collaborative Lakeflow Jobs
