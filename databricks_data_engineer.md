@@ -684,10 +684,21 @@ WHEN NOT MATCHED THEN
 	3. Integration Tests: Created Tables/Rows, Dupes, column ranges, distinct values etc.
 	
 
-## Version Control with Git Overview
+## Git VC (Version Control) on Databricks
 
-+ Organizational Challenges
-	- Development Silos: Isolates devevelopment and team operations
++ Organizational Challenges without VC
+	- Development Silos: Isolates development and team operations
 	- Low SW Quality: Independent development causes duplicate code, bad standards, no code-reviewing
 	- Unstable Versioning: Difficult to track, revert, audit changes
-	- Risky Frequent Updates: 
+	- Risky Frequent Updates
+	- No Scaling Development: Branching / CI/CD Integrations become problematic
+
++ Supported Git Hosts
+	- GitHub
+	- GitLab
+	- Bitbucket
+	- AWS
+	- Azure DevOps
+
++ Git Benefits: Collaboration, VC, branching/merging, distributed nature, open-source, widespread
+	
