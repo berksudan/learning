@@ -728,3 +728,26 @@ WHEN NOT MATCHED THEN
 
 
 ## Deploying Databricks Assets Overview
+
++ Deployment Option - REST API
+	- Postman/DBX
+	- Flexibility: ⬆️⬆️
+	- Best for: Custom integrations
+
++ Deployment Option - CLI:
+	- Wraps REST API
+	- Simpler than REST API
+	- Flexibility: ⬇️
+	- Best for: One-off tasks, experimentation, shell-scripting
+
++ Deployment Option - SDK:
+	- Supports PY/Go/R/JAVA
+	- Most Developer Friendly
+	- Allows app development
+	- Allows DBX LF Jobs
+	- Robust Error-handling
+	- Programmatic way to interact with DBX resources
+
++ Deployment Options - Key Comparions
+	- Ease of Use: SDK > CLI > REST-API
+	- Flexibility: REST-API > SDK > CLI
