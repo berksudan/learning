@@ -751,3 +751,9 @@ WHEN NOT MATCHED THEN
 + Deployment Options - Key Comparions
 	- Ease of Use: SDK > CLI > REST-API
 	- Flexibility: REST-API > SDK > CLI
+
++ DAB (DBX Asset Bundles) Supports SWE Practices
+	- VC (Version Control): track changes and history
+	- Code Review: maintain code-quality, enforce coding-standards, resolve bugs
+	- Testing: check expected output, predetermined requirements, consistency, predictability
+	- CI (Continuous Integration): automate development / testing / deployment, high reliability
