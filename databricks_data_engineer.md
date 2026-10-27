@@ -753,9 +753,9 @@ WHEN NOT MATCHED THEN
 	- Flexibility: REST-API > SDK > CLI
 
 + DAB (DBX Asset Bundles)
-	- Encapsulate: Necessary configs/artifacts/resources
+	- Encapsulate Necessary DBX Resources: Configs, artifacts, resources
 	- Code Once Deploy Everywhere: uses YAML, helps reproducibility 
-	- 
+	- Contains Instructions for: Validation, Deployment
 
 + SWE Practices
 	- VC (Version Control): track changes and history
