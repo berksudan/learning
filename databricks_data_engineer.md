@@ -752,8 +752,22 @@ WHEN NOT MATCHED THEN
 	- Ease of Use: SDK > CLI > REST-API
 	- Flexibility: REST-API > SDK > CLI
 
-+ DAB (DBX Asset Bundles) Supports SWE Practices
++ DAB (DBX Asset Bundles)
+	- Encapsulate: Necessary configs/artifacts/resources
+	- Code Once Deploy Everywhere: uses YAML, helps reproducibility 
+	- 
+
++ SWE Practices
 	- VC (Version Control): track changes and history
 	- Code Review: maintain code-quality, enforce coding-standards, resolve bugs
 	- Testing: check expected output, predetermined requirements, consistency, predictability
 	- CI (Continuous Integration): automate development / testing / deployment, high reliability
+
++ DABs Support SWE Practices
+	- Combines: Infrastructure-as-code & DBX-as-source & automation
+	- Streamline: Collaboration
+	- Improve: QA (Quality Assurance)
+	- Efficient Delivery
+	- Supports: Git VC/review
+	- Isolated Tests: On isolated envs
+	- CI/CD Tool Integrations: GH Actions, Azure DevOps
