@@ -781,4 +781,6 @@ WHEN NOT MATCHED THEN
 + High-Level Architecture for Development and CI/CD with DABs
 	- Local Env Setup: Users work here
 	- VC: Users commit here
-	- 
+	- Deploy to Dev Workspace: manually by user
+	- Staging Workspace: Integration testing
+	- Prod Workspace: After review+approval
