@@ -752,7 +752,7 @@ WHEN NOT MATCHED THEN
 	- Ease of Use: SDK > CLI > REST-API
 	- Flexibility: REST-API > SDK > CLI
 
-+ DAB (DBX Asset Bundles) Definition
++ DAB (DBX Asset Bundles) Definition	
 	- Encapsulate: Configs, artifacts, resources (jobs, pipelines, notebooks)
 	- Code Once Deploy Everywhere: uses YAML as metadata, helps reproducibility/consistency
 	- Contains Instructions for: Validation, Deployment
@@ -777,3 +777,8 @@ WHEN NOT MATCHED THEN
 	- Validate: using DBX CLI
 	- Deploy: to a chosen workspace
 	- Execute: LF Jobs and popelines
+
++ High-Level Architecture for Development and CI/CD with DABs
+	- Local Env Setup: Users work here
+	- VC: Users commit here
+	- 
