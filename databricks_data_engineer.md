@@ -752,9 +752,9 @@ WHEN NOT MATCHED THEN
 	- Ease of Use: SDK > CLI > REST-API
 	- Flexibility: REST-API > SDK > CLI
 
-+ DAB (DBX Asset Bundles)
-	- Encapsulate Necessary DBX Resources: Configs, artifacts, resources
-	- Code Once Deploy Everywhere: uses YAML, helps reproducibility 
++ DAB (DBX Asset Bundles) Definition
+	- Encapsulate: Configs, artifacts, resources (jobs, pipelines, notebooks)
+	- Code Once Deploy Everywhere: uses YAML as metadata, helps reproducibility/consistency
 	- Contains Instructions for: Validation, Deployment
 
 + SWE Practices
@@ -767,7 +767,13 @@ WHEN NOT MATCHED THEN
 	- Combines: Infrastructure-as-code & DBX-as-source & automation
 	- Streamline: Collaboration
 	- Improve: QA (Quality Assurance)
-	- Efficient Delivery
+	- Fast and Efficient Delivery
 	- Supports: Git VC/review
 	- Isolated Tests: On isolated envs
 	- CI/CD Tool Integrations: GH Actions, Azure DevOps
+
++ DAB Simple Lifecycle:
+	- `databricks.yml`: define resources & requirements
+	- Validate: using DBX CLI
+	- Deploy: to a chosen workspace
+	- Execute: LF Jobs and popelines
